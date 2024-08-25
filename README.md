@@ -129,3 +129,28 @@ git config --global user.email email@codejr.com.br
 
 * Para confirmar o merge: `git push origin suabranch`
 
+
+
+
+# Node.js MVC Project
+
+Este é um exemplo de projeto Node.js utilizando a arquitetura MVC (Model-View-Controller). O projeto usa Express para o servidor web, EJS como mecanismo de visualização e Mongoose para interação com MongoDB.
+
+## Instalação
+
+1. **Clone o repositório**
+
+   ```bash
+   git clone https://github.com/isaac-kapela/Projeto_final_toti
+   cd Projeto_final_toti
+   
+  * npm install
+
+  * npm init -y
+
+  * npm install express ejs mongoose
+
+  * npm install sqlite3
+
+
+
