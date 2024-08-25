@@ -1,8 +1,8 @@
-# **Trainee 2023.2**
+# **Grupo 2024.2**
 
-# **Sexta Marcha**
+# **Cardapio**
 
-## **Projeto Trainee, Code Jr, Grupo 000, 2023.2**
+## **Projeto Final, Toti, Grupo 05, 2024.2**
 
 | **Sumário** |
 |-------------|
@@ -29,6 +29,7 @@
 #### Links Úteis:
 
 * [Trello](https://trello.com/b/WNH1z5A7/projeto-final-toti)
+
 
 
 
