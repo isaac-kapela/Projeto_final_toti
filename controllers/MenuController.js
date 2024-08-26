@@ -1,9 +1,8 @@
-// menuController
 
 import { db, adicionarItemMenu } from '../DB/db.js';
 
 class MenuController {
-  index(req, res) {
+  listar(req, res) {
     const sql = 'SELECT * FROM menu';
     db.all(sql, [], (erro, resultado) => {
       if (erro) {

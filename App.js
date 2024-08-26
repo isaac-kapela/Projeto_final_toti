@@ -1,4 +1,4 @@
-    //App
+
 
     import express from 'express';
     import MenuController from './controllers/MenuController.js';
@@ -7,7 +7,7 @@
 
     app.use(express.json());
 
-    app.get('/', MenuController.index);
+    app.get('/', MenuController.listar);
 
     app.post('/criar', MenuController.criar);
 
