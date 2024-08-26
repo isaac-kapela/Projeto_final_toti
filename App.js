@@ -1,12 +1,14 @@
-import express from 'express';
-import MenuController from './controllers/MenuController.js';
+    //App
 
-const app = express();
+    import express from 'express';
+    import MenuController from './controllers/MenuController.js';
 
-app.use(express.json());
+    const app = express();
 
-app.get('/menu', MenuController.index);
+    app.use(express.json());
 
-app.post('/menu', MenuController.criar);
+    app.get('/', MenuController.index);
 
-export default app;
+    app.post('/criar', MenuController.criar);
+
+    export default app;
