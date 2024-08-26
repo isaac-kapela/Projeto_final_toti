@@ -1,14 +1,14 @@
+import express from 'express';
+import MenuController from './controllers/MenuController.js';
 
+const app = express();
 
-    import express from 'express';
-    import MenuController from './controllers/MenuController.js';
+app.use(express.json());
 
-    const app = express();
+app.get('/', MenuController.listar);
 
-    app.use(express.json());
+app.post('/criar', MenuController.criar);
 
-    app.get('/', MenuController.listar);
+app.delete('/excluir/:id', MenuController.excluir);
 
-    app.post('/criar', MenuController.criar);
-
-    export default app;
+export default app;

@@ -1,5 +1,4 @@
 
-
 import sqlite3 from 'sqlite3';
 
 const bancoDados = new sqlite3.Database('./menu.db', (erro) => {
@@ -41,7 +40,7 @@ const adicionarItemMenu = async (nome, descricao, preco, categoria, imagem, disp
         rejeitar(erro);
       } else {
         console.log('Item adicionado ao menu com sucesso.');
-        resolver(this.lastID); // Retorna o ID do último item inserido
+        resolver(this.lastID); // 
       }
     });
   });

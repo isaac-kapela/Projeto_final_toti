@@ -24,6 +24,20 @@ class MenuController {
         res.status(400).json({ "erro": erro.message });
       });
   }
+
+  excluir(req, res) {
+    const { id } = req.params;
+
+    const sql = 'DELETE FROM menu WHERE id = ?';
+    db.run(sql, [id], function (erro) {
+      if (erro) {
+        res.status(400).json({ "erro": erro.message });
+        return;
+      }
+      res.json({ message: `Item com ID ${id} excluído com sucesso.` });
+    });
+  }
+
 }
 
 export default new MenuController();
