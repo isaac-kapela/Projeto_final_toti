@@ -40,7 +40,7 @@ const adicionarItemMenu = async (nome, descricao, preco, categoria, imagem, disp
         rejeitar(erro);
       } else {
         console.log('Item adicionado ao menu com sucesso.');
-        resolver(this.lastID); // 
+        resolver(this.lastID); 
       }
     });
   });

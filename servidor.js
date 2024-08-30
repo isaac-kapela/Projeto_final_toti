@@ -6,7 +6,6 @@ const PORTA = process.env.PORTA || 3000;
 const iniciarServidor = async () => {
   try {
     await criarTabelaMenu();
-    console.log('Tabela de menu criada.');
     app.listen(PORTA, () => {
       console.log(`Servidor rodando na porta http://localhost:${PORTA}`);
     });
