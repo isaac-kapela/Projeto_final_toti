@@ -1,4 +1,3 @@
-//db.js
 import sqlite3 from 'sqlite3';
 
 const bancoDados = new sqlite3.Database('./menu.db', (erro) => {

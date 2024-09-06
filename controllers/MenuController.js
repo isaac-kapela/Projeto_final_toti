@@ -1,4 +1,3 @@
-// MenuController.js
 import { db, adicionarItemMenu } from '../DB/db.js';
 
 class MenuController {
