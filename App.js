@@ -9,6 +9,7 @@ app.get('/', MenuController.listar);
 
 app.post('/criar', MenuController.criar);
 
+app.put('/editar/:id', MenuController.editar);
 app.delete('/excluir/:id', MenuController.excluir);
 
 export default app;

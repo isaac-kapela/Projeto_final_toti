@@ -1,4 +1,4 @@
-
+// MenuController.js
 import { db, adicionarItemMenu } from '../DB/db.js';
 
 class MenuController {
@@ -38,6 +38,19 @@ class MenuController {
     });
   }
 
+  editar(req, res) {
+    const { id } = req.params;
+    const { nome, descricao, preco, categoria, imagem, disponibilidade } = req.body;
+
+    const sql = `UPDATE menu SET nome = ?, descricao = ?, preco = ?, categoria = ?, imagem = ?, disponibilidade = ? WHERE id = ?`;
+    db.run(sql, [nome, descricao, preco, categoria, imagem, disponibilidade, id], function (erro) {
+      if (erro) {
+        res.status(400).json({ "erro": erro.message });
+        return;
+      }
+      res.json({ message: `Item com ID ${id} atualizado com sucesso.` });
+    });
+  }
 }
 
 export default new MenuController();
