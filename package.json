@@ -1,13 +1,24 @@
 {
+  "name": "projeto_final_toti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "type": "module",
+  "scripts": {
+    "start": "nodemon servidor.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "sqlite": "^5.1.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
-  },
-  "scripts": {
-    "start": "nodemon servidor.js"
   }
 }
