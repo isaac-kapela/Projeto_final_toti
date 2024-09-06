@@ -20,6 +20,44 @@ app.get('/', (req, res) => {
     res.status(200).json({ message: 'bão?' });
 });
 
+
+app.get("/users/:id", checarToken,  async (req, res) => {
+    const id = req.params.id;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'ID inválido' });
+    }
+
+    const user = await User.findById(id, "-senha");
+
+    if (user == null || user === '') {
+        return res.status(404).json({ message: 'Usuario não encontrado' });
+        
+    }
+
+    res.status(200).json(user);
+});
+
+function checarToken(req, res, next){
+    const autenticarHeader = req.headers['authorization'];
+    const token = autenticarHeader && autenticarHeader.split(' ')[1];
+
+    if(!token){
+        return res.status(401).json({message: 'Acesso negado'});
+    }
+
+    try{
+        const seguranca = process.env.SECRET
+         jwt.verify(token, seguranca)
+        next();
+    }
+    catch(error){
+        return res.status(400).json({message: 'Token invalido'});
+    }
+}
+
+
+
 app.post('/autenticar/registrar', async (req, res) => {
     const { nome, email, senha, comfirmarSenha } = req.body;
 
