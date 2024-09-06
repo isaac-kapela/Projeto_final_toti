@@ -36,7 +36,7 @@
 
 ## Descrição do Projeto:
 
-* Projeto / Projeto final do curso da toti  [CodeJR](https://codejr.com.br/), turma 47 2024.2;
+* Projeto / Projeto final do curso da toti  [Toti diversidade](https://totidiversidade.com.br/), turma 47 2024.2;
 * Possuirá Front-End em HTML, CSS, React, JavaScript, Bootstrap e Back-End em JavaScript com Node.js no padrão MVC, com Banco de Dados SQLite;
 
 
