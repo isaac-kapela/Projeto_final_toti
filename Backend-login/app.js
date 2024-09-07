@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get("/users/:id", checarToken,  async (req, res) => {
+app.get("/users/:id", checarToken, async (req, res) => {
     const id = req.params.id;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -32,30 +32,29 @@ app.get("/users/:id", checarToken,  async (req, res) => {
 
     if (user == null || user === '') {
         return res.status(404).json({ message: 'Usuario não encontrado' });
-        
+
     }
 
-    res.status(200).json(user);
+    res.status(200).json({user});
 });
 
-function checarToken(req, res, next){
+function checarToken(req, res, next) {
     const autenticarHeader = req.headers['authorization'];
     const token = autenticarHeader && autenticarHeader.split(' ')[1];
 
-    if(!token){
-        return res.status(401).json({message: 'Acesso negado'});
+    if (!token) {
+        return res.status(401).json({ message: 'Acesso negado' });
     }
 
-    try{
-        const seguranca = process.env.SECRET
-         jwt.verify(token, seguranca)
+    try {
+        const seguranca2 = process.env.SECRET
+        jwt.verify(token, seguranca2)
         next();
     }
-    catch(error){
-        return res.status(400).json({message: 'Token invalido'});
+    catch (error) {
+        return res.status(400).json({ message: 'Token invalido' });
     }
 }
-
 
 
 app.post('/autenticar/registrar', async (req, res) => {
@@ -66,15 +65,20 @@ app.post('/autenticar/registrar', async (req, res) => {
     }
 
     if (email == null || email === '') {
-        return res.status(400).json({ message: 'email é obrigatório' });
+        return res.status(400).json({ message: 'Email é obrigatório' });
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ message: 'digite um email válido' });
     }
 
     if (senha == null || senha === '') {
-        return res.status(400).json({ message: 'senha é obrigatória' });
+        return res.status(400).json({ message: 'Senha é obrigatória' });
     }
 
     if (senha !== comfirmarSenha) {
-        return res.status(400).json({ message: 'As senhas não iguais' });
+        return res.status(400).json({ message: 'As senhas não são iguais' });
     }
 
     const usuarioExistente = await User.findOne({ email: email });
@@ -90,18 +94,16 @@ app.post('/autenticar/registrar', async (req, res) => {
         nome,
         email,
         senha: senhaHash,
-    })
+    });
+
     try {
         await usuario.save();
-        res.status(200).json({ message: 'Usuario criado com sucesso!' });
-    }
-    catch (erro) {
-        console.log(erro)
-
-        res.status(400).json({ message: 'Aconteceu um erro  no servidor, tente novamente mais tarde!' });
+        res.status(200).json({ message: 'Usuário criado com sucesso!' });
+    } catch (erro) {
+        console.log(erro);
+        res.status(500).json({ message: 'Aconteceu um erro no servidor, tente novamente mais tarde!' });
     }
 });
-
 app.post('/autenticar/login', async (req, res) => {
     const { email, senha } = req.body;
 
