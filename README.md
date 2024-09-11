@@ -53,7 +53,7 @@ Pra se conectar, utilize os seguinte comandos: <sub>(Substitua o nome e o e-mail
 git config --global user.name "nomeDeUsuario"
 ```
 ```
-git config --global user.email email@cToti.com.br
+git config --global user.email email@Toti.com.br
 ```
 
 
