@@ -6,20 +6,22 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+const corsOptions = {
+    origin: 'http://localhost:3000', 
+    optionsSuccessStatus: 200 
+};
+app.use(cors(corsOptions));
 
 const PORTA = 5000;
 const db_user = process.env.DB_USER;
 const db_Senha = process.env.DB_SENHA;
 
 const User = require('./models/User');
-const e = require('express');
 
 app.get('/', (req, res) => {
-    res.status(200).json({ message: 'bão?' });
+  res.status(200).json({ message: 'bão?' });
 });
-
 
 app.get("/users/:id", checarToken, async (req, res) => {
     const id = req.params.id;
@@ -32,7 +34,6 @@ app.get("/users/:id", checarToken, async (req, res) => {
 
     if (user == null || user === '') {
         return res.status(404).json({ message: 'Usuario não encontrado' });
-
     }
 
     res.status(200).json({user});
@@ -47,18 +48,16 @@ function checarToken(req, res, next) {
     }
 
     try {
-        const seguranca2 = process.env.SECRET
-        jwt.verify(token, seguranca2)
+        const seguranca2 = process.env.SECRET;
+        jwt.verify(token, seguranca2);
         next();
-    }
-    catch (error) {
+    } catch (error) {
         return res.status(400).json({ message: 'Token invalido' });
     }
 }
 
-
 app.post('/autenticar/registrar', async (req, res) => {
-    const { nome, email, senha, comfirmarSenha } = req.body;
+    const { nome, email, senha, confirmarSenha } = req.body;
 
     if (nome == null || nome === '') {
         return res.status(400).json({ message: 'Nome é obrigatório' });
@@ -70,25 +69,24 @@ app.post('/autenticar/registrar', async (req, res) => {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        return res.status(400).json({ message: 'digite um email válido' });
+        return res.status(400).json({ message: 'Digite um email válido' });
     }
 
     if (senha == null || senha === '') {
         return res.status(400).json({ message: 'Senha é obrigatória' });
     }
 
-    if (senha !== comfirmarSenha) {
+    if (senha !== confirmarSenha) {
         return res.status(400).json({ message: 'As senhas não são iguais' });
     }
 
-    const usuarioExistente = await User.findOne({ email: email });
+    const usuarioExistente = await User.findOne({ email });
 
     if (usuarioExistente) {
         return res.status(400).json({ message: 'Email já cadastrado, por favor utilize um outro email' });
     }
 
-    const senhaCriptografada = await bcrypt.hash(senha, 10);
-    const senhaHash = await bcrypt.hash(senha, senhaCriptografada);
+    const senhaHash = await bcrypt.hash(senha, 10);
 
     const usuario = new User({
         nome,
@@ -104,6 +102,7 @@ app.post('/autenticar/registrar', async (req, res) => {
         res.status(500).json({ message: 'Aconteceu um erro no servidor, tente novamente mais tarde!' });
     }
 });
+
 app.post('/autenticar/login', async (req, res) => {
     const { email, senha } = req.body;
 
@@ -117,12 +116,11 @@ app.post('/autenticar/login', async (req, res) => {
     const usuario = await User.findOne({ email: email });
     if (usuario == null || usuario === '') {
         return res.status(400).json({ message: 'Usuario não encontrado' });
-
     }
 
     const checarSenha = await bcrypt.compare(senha, usuario.senha);
 
-    if (checarSenha === false) {
+    if (!checarSenha) {
         return res.status(400).json({ message: 'Senha incorreta' });
     }
 
