@@ -42,7 +42,7 @@ export default function Cadastro() {
           <img src={imgPizza} alt="Imagem de ilustração" className="w-[400px] h-full rounded-l-2xl object-cover" />
         </div>
         <div className="flex flex-col justify-center p-8 md:p-14">
-          <h1 className="text-4xl font-bold mb-3">Urbee</h1>
+          <h1 className="text-4xl font-bold mb-3">Pizza toti</h1>
           <h2 className="font-light text-gray-400 mb-8">Crie sua conta</h2>
           <form onSubmit={handleSubmit}>
             <div className="py-4">
