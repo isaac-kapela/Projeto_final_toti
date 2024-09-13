@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import * as S from './login_style';
+import PizzaIMG from "../../assets/login-pizza.jpg";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -32,39 +32,54 @@ export default function Login() {
   };
 
   return (
-    <>
-      <S.Style_Login>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', width: '300px' }}>
-            <h2>Login</h2>
-
-            <label>Email:</label>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
-            />
-
-            <label>Senha:</label>
-            <input 
-              type="password" 
-              value={senha} 
-              onChange={(e) => setSenha(e.target.value)} 
-              required 
-              autoComplete="current-password" 
-            />
-
-            <button className='btn-Entar' type="submit" style={{ marginTop: '10px' }}>Entrar</button>
-
-            {message && <p style={{ color: message.includes('sucesso') ? 'green' : 'red', marginTop: '10px' }}>{message}</p>}
-
-            <span type="button" onClick={() => navigate('/cadastro')} style={{ marginTop: '10px' }}>
-              Não tem uma conta?  <span className='cadastro-se'>Cadastre-se</span>
-            </span>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+        <div className="flex flex-col justify-center p-8 md:p-14">
+          <h1 className="text-4xl font-bold mb-3">Pizza-TOTI</h1>
+          <h2 className="font-light text-gray-400 mb-8">Bem-vindo de volta</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="py-4">
+              <label className="mb-2 text-md block">Endereço de Email:</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder= "fulano@gmail.com"
+                className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+              />
+            </div>
+            <div className="py-4">
+              <label className="mb-2 text-md block">Senha:</label>
+              <input
+                type="password"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                required
+                autoComplete="current-password"
+                placeholder="••••••••"
+                className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+              />
+            </div>
+            <button type="submit" className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
+              Entrar
+            </button>
+            {message && (
+              <p
+                className={`mt-2 ${message.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}
+              >
+                {message}
+              </p>
+            )}
+            <p className="text-center text-gray-400 mt-4">
+              Não tem uma conta? <span className="font-bold text-black cursor-pointer" onClick={() => navigate('/cadastro')}>Cadastre-se</span>
+            </p>
           </form>
         </div>
-      </S.Style_Login>
-    </>
+        <div className="relative hidden md:block">
+          <img src={PizzaIMG} alt="Mediterranean food" className="w-[400px] h-full rounded-r-2xl object-cover" />
+        </div>
+      </div>
+    </div>
   );
 }
