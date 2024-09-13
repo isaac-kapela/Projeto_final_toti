@@ -1,16 +1,16 @@
 import express from 'express';
 import MenuController from './controllers/MenuController.js';
-import checarToken from './controllers/checkartoken.js';
+//import checarToken from './controllers/checkartoken.js';
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/', MenuController.listar);
+app.get('/',  MenuController.listar);
 
-app.post('/criar', checarToken,  MenuController.criar);
+app.post('/criar',   MenuController.criar);
 
-app.put('/editar/:id', checarToken, MenuController.editar);
-app.delete('/excluir/:id', checarToken, MenuController.excluir);
+app.put('/editar/:id',  MenuController.editar);
+app.delete('/excluir/:id',  MenuController.excluir);
 
 export default app;
