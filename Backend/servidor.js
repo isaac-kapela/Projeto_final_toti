@@ -1,5 +1,14 @@
 import app from './App.js';
 import { criarTabelaMenu } from './DB/db.js';
+import cors from 'cors';
+app.use(cors());
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 
 const PORTA = process.env.PORTA || 8000;
 

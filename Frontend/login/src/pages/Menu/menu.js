@@ -1,27 +1,45 @@
-// menu.js
-import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import ListaMenu from './ListaMenu';
-import CriaMenuItem from './Criar';
-import EditaMenuItem from './editarMenu';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 
-function Menu() {
+const ControllaMenu = () => {
+  const [menuItems, setMenuItems] = useState([]);
+  const [form, setForm] = useState({
+    nome: '',
+    descricao: '',
+    preco: '',
+    categoria: '',
+    imagem: '',
+    disponibilidade: true
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editId, setEditId] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/')
+      .then(response => {
+        setMenuItems(response.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar itens do menu:', error);
+      });
+  }, []);
+
   return (
     <div>
-      <nav>
-        <ul>
-          <li><Link to="/">Menu</Link></li>
-          <li><Link to="/criar">Adicionar Item</Link></li>
-        </ul>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<ListaMenu />} />
-        <Route path="/criar" element={<CriaMenuItem />} />
-        <Route path="/editar/:id" element={<EditaMenuItem />} />
-      </Routes>
+      <h2>Itens do Menu</h2>
+      <ul>
+        {menuItems.map(item => (
+          <li key={item.id}>
+            <h3>{item.nome}</h3>
+            <p>{item.descricao}</p>
+            <p>Preço: {item.preco}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
+};
 
-export default Menu;
+export default ControllaMenu;
