@@ -1,3 +1,4 @@
+//login.js
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -13,15 +14,13 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/autenticar/login', {
-        email,
-        senha,
-      });
+      const response = await axios.post('http://localhost:5000/autenticar/login', { email, senha });
 
       setMessage(response.data.message);
-      if (response.data.success) {
-        navigate('/home');
+      if (response.status === 200) {
+        navigate('/menu');
       }
+      
     } catch (error) {
       if (error.response && error.response.data.message) {
         setMessage(error.response.data.message);
@@ -45,7 +44,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder= "fulano@gmail.com"
+                placeholder="fulano@gmail.com"
                 className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
               />
             </div>
@@ -65,9 +64,7 @@ export default function Login() {
               Entrar
             </button>
             {message && (
-              <p
-                className={`mt-2 ${message.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}
-              >
+              <p className={`mt-2 ${message.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}>
                 {message}
               </p>
             )}

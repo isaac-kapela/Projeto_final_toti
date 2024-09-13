@@ -1,7 +1,7 @@
 import app from './App.js';
 import { criarTabelaMenu } from './DB/db.js';
 
-const PORTA = process.env.PORTA || 5000;
+const PORTA = process.env.PORTA || 8000;
 
 const iniciarServidor = async () => {
   try {
