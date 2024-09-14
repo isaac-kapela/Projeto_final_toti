@@ -1,8 +1,8 @@
-//login.js
 import React, { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import PizzaIMG from "../../assets/login-pizza.jpg";
+import Img_fundo from "../../assets/img_fundo.jpg";
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -31,8 +31,24 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+    <div
+      className="flex items-center justify-center min-h-screen bg-gray-100"
+      style={{
+        backgroundImage: `url(${Img_fundo})`,
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center', 
+        backgroundRepeat: 'no-repeat', 
+        height: '100vh', 
+        width: '100vw',
+      }}
+    >
+      <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0"
+        style={{
+          WebkitBoxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
+          MozBoxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
+          boxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
+        }}
+      >
         <div className="flex flex-col justify-center p-8 md:p-14">
           <h1 className="text-4xl font-bold mb-3">Pizza-TOTI</h1>
           <h2 className="font-light text-gray-400 mb-8">Bem-vindo de volta</h2>
@@ -79,4 +95,5 @@ export default function Login() {
       </div>
     </div>
   );
+  
 }
