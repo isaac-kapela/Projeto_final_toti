@@ -59,4 +59,17 @@ const fecharBancoDados = async () => {
   });
 };
 
-export { bancoDados as db, criarTabelaMenu, adicionarItemMenu, fecharBancoDados };
+const obterItensDoMenu = async () => {
+  return new Promise((resolver, rejeitar) => {
+    bancoDados.all('SELECT * FROM menu', [], (erro, rows) => {
+      if (erro) {
+        console.error('Erro ao obter itens do menu:', erro.message);
+        rejeitar(erro);
+      } else {
+        resolver(rows);
+      }
+    });
+  });
+};
+
+export { bancoDados as db, criarTabelaMenu, adicionarItemMenu, fecharBancoDados, obterItensDoMenu };

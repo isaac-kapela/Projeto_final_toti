@@ -1,25 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
 
 const ControllaMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
-  const [form, setForm] = useState({
-    nome: '',
-    descricao: '',
-    preco: '',
-    categoria: '',
-    imagem: '',
-    disponibilidade: true
-  });
-  const [isEditing, setIsEditing] = useState(false);
-  const [editId, setEditId] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('http://localhost:8000/')
+    axios.get('http://localhost:8080/menu')
       .then(response => {
-        setMenuItems(response.data);
+        setMenuItems(response.data);    
       })
       .catch(error => {
         console.error('Erro ao buscar itens do menu:', error);
