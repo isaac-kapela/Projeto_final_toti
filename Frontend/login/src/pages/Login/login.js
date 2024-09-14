@@ -18,7 +18,7 @@ export default function Login() {
 
       setMessage(response.data.message);
       if (response.status === 200) {
-        navigate('/menu');
+        navigate('/home');
       }
       
     } catch (error) {

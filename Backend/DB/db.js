@@ -40,6 +40,7 @@ const adicionarItemMenu = async (nome, descricao, preco, categoria, imagem, disp
       } else {
         console.log('Item adicionado ao menu com sucesso.');
         resolver(this.lastID); 
+        console.log(adicionarItemMenu);
       }
     });
   });
