@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: quicksand;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:white;
+    color: black;
+    padding: 15px 7%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: 0.7s;
+}
+
+.logo {
+    font-size: 3.5rem;
+    font-weight: bold;  
+    cursor: pointer;
+}
+
+.ul_lista {
+    flex: 1;
+    list-style: none;
+    text-align: center;
+}
+
+.li_lista {
+    display: inline;
+    margin: 10px 15px;
+    font-size: 18px;
+}
+
+.mudaTema{
+    cursor: pointer;
+    width: 50px;
+}
+
+
+
+.navbar.light {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .navbar.dark {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  

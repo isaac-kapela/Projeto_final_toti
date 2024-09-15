@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./home.css";
+import NavBar from "../../components/NavBar/navBar.js";
 
 const ControllaMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -15,8 +16,9 @@ const ControllaMenu = () => {
       });
   }, []);
 
+
   return (
-    <div className="container">
+    <>
       <h2 className="titulo">Itens do Menu</h2>
       <ul className="lista">
         {menuItems.map(item => (
@@ -34,7 +36,7 @@ const ControllaMenu = () => {
           
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

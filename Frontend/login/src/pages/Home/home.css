@@ -10,24 +10,11 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+  background: #f5ac3f;
+
 }
 
-.container {
-  width: 90%;
-  max-width: 800px;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
 
 .titulo {
   color: #333;
@@ -81,3 +68,4 @@ body {
   font-weight: bold;
   font-size: 14px;
 }
+
