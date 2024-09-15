@@ -25,6 +25,14 @@ const ControllaMenu = () => {
     setItemSelecionado(null);
   };
 
+  const formatarDisponibilidade = (disponivel) => {
+    if (disponivel === 1) {
+      return "Sim";
+    } else {
+      return "Não";
+    }
+  };
+
   return (
     <>
       <div className="containerItens">
@@ -38,8 +46,8 @@ const ControllaMenu = () => {
                 <p className="descricao-item">{item.descricao}</p>
               </div>
               <div className="detalhes-item">
-                <p className="preco-item">Preço: {item.preco}</p>
-                <p className="disponibilidade-item">Disponível: {item.disponivel ? "Sim" : "Não"}</p>
+                <p className="preco-item">Preço: R${item.preco}</p>
+                <p className="disponibilidade-item">Disponível: {formatarDisponibilidade(item.disponivel)}</p>
               </div>
             </li>
           ))}

@@ -126,3 +126,10 @@ body {
   flex-direction: column;
   margin-bottom: 50px;
 }
+
+.imagem-item img{
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
