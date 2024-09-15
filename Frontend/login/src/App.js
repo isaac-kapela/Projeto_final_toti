@@ -1,3 +1,5 @@
+// app.js
+
 import React, { useState, useEffect } from 'react';
 import Rotas from './routes/routes';
 import './App.css';

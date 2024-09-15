@@ -32,8 +32,6 @@ const ControllaMenu = () => {
               <p className="disponibilidade-item">Disponível: {item.disponivel ? "Sim" : "Não"}</p>
             </div>
           </li>
-          
-          
         ))}
       </ul>
     </>

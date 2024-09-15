@@ -10,8 +10,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:white;
-    color: black;
+    background-color: #f5f5f5; 
+    color: #333333;
     padding: 15px 7%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: 0.7s;
@@ -27,6 +27,8 @@
     flex: 1;
     list-style: none;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .li_lista {
@@ -35,20 +37,101 @@
     font-size: 18px;
 }
 
-.mudaTema{
+.li_lista a {
+    color: #333333; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.li_lista a:hover {
+    color: #ff6347; 
+}
+
+.mudaTema {
     cursor: pointer;
     width: 50px;
 }
 
-
-
 .navbar.light {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .navbar.dark {
-    background-color: #333333;
-    color: #ffffff;
-  }
-  
+    background-color: #f5f5f5; 
+    color: #333333; 
+}
+
+.navbar.dark {
+    background-color: #2e2e2e; 
+    color: #d3d3d3; 
+}
+
+.navbar.dark .li_lista a {
+    color: #d3d3d3; 
+}
+
+.navbar.dark .li_lista a:hover {
+    color: #ff6347; 
+}
+
+.someResponsiva{
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .logo {
+        width: 20%;
+    }
+    .ul_lista {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    .ul_lista.active {
+        display: flex; 
+    }
+
+    .li_lista {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 15px;
+        right: 7%;
+        margin-top: 10px;
+    }
+
+    .navbar.light .hamburger {
+        background-color: black;   
+        color: black;     
+    }
+
+    .some{
+        display: none;
+    }
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    margin: 4px;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+}
