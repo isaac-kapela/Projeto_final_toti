@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import Rotas from './routes/routes';
+import { useLocation } from 'react-router-dom';
+import AppRoutes from './routes/routes';
 import './App.css';
 import NavBar from './components/NavBar/navBar.js';
-import Footer from "./components/Footer/footer.js"
+import Footer from "./components/Footer/footer.js";
 
 function App() {
+  const location = useLocation();
   const temaAtual = localStorage.getItem('temaAtual');
   const [tema, setTema] = useState(temaAtual ? temaAtual : 'light');  
 
@@ -12,13 +14,15 @@ function App() {
     localStorage.setItem('temaAtual', tema);
   }, [tema]);
 
+  const telaproibida = location.pathname === '/login' || location.pathname === '/' || location.pathname === '/cadastro';
+
   return (
     <>
-      <NavBar tema={tema} setTema={setTema} />
+      {!telaproibida && <NavBar tema={tema} setTema={setTema} />}
       <div className={`container2 ${tema}`}>
-        <Rotas />
+        <AppRoutes />
       </div>
-      <Footer tema={tema} />
+      {!telaproibida && <Footer tema={tema} />}
     </>
   );
 }
