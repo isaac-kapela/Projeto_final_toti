@@ -3,37 +3,73 @@
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: white;
   }
+  
   footer {
-    background: #343434;
     padding-top: 50px;
   }
+  
+  footer.light {
+    background-color: #f5f5f5;
+    color: #333333;
+  }
+  
+  footer.light .conteudo-footer,
+  footer.light .icones-sociais i {
+    color: #333333;
+  }
+  
+  footer.light .lista li {
+    color: #333333;
+  }
+  
+  footer.dark {
+    background-color: #2e2e2e;
+    color: #ffffff;
+  }
+  
+  footer.dark .conteudo-footer,
+  footer.dark .icones-sociais i {
+    color: #ffffff;
+  }
+  
+  footer.dark .lista li {
+    color: #ffffff;
+  }
+  
   .container {
     width: 1140px;
     margin: auto;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
   }
+  
   .conteudo-footer {
     width: 33.3%;
+    padding: 10px;
   }
+  
   h3 {
     font-size: 28px;
     margin-bottom: 15px;
     text-align: center;
   }
+  
   .conteudo-footer p {
     width: 190px;
     margin: auto;
     padding: 7px;
   }
+  
   .conteudo-footer ul {
     text-align: center;
   }
+  
   .lista {
     padding: 0;
   }
+  
   .lista li {
     width: auto;
     text-align: center;
@@ -41,6 +77,7 @@
     padding: 7px;
     position: relative;
   }
+  
   .lista li::before {
     content: '';
     position: absolute;
@@ -52,37 +89,45 @@
     background: #f18930;
     transition-duration: 0.5s;
   }
+  
   .lista li:hover::before {
     width: 70px;
   }
+  
   .icones-sociais {
     text-align: center;
     padding: 0;
   }
+  
   .icones-sociais li {
     display: inline-block;
     text-align: center;
     padding: 5px;
   }
+  
   .icones-sociais i {
-    color: white;
     font-size: 25px;
   }
+  
   a {
     text-decoration: none;
   }
+  
   a:hover {
     color: #f18930;
   }
+  
   .icones-sociais i:hover {
     color: #f18930;
   }
+  
   .barra-inferior {
     background: #f18930;
     text-align: center;
     padding: 10px 0;
     margin-top: 50px;
   }
+  
   .barra-inferior p {
     color: #343434;
     margin: 0;
@@ -90,3 +135,27 @@
     padding: 7px;
   }
   
+  footer .icones-sociais a {
+    color: inherit;
+  }
+  
+  footer .icones-sociais a:hover {
+    color: #ff6347;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .conteudo-footer {
+      width: 100%;
+      padding: 10px 20px;
+    }
+  
+    .conteudo-footer p {
+      width: 100%;
+    }
+  }

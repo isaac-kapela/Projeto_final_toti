@@ -1,18 +1,18 @@
 import React from "react";
 import "./footer.css";
 
-const footer = () => {
+const Footer = ({ tema }) => {
   return (
-    <footer>
+    <footer className={tema}>
       <div className="container">
         <div className="conteudo-footer">
           <h3>Fale Conosco</h3>
-          <p>Email: info@exemplo.com</p>
-          <p>Telefone: +121 56556 565556</p>
+          <p>Email: info@gmail.com</p>
+          <p>Telefone: +55 1134465-5630</p>
           <p>Endereço: Seu Endereço 123, Rua</p>
         </div>
         <div className="conteudo-footer">
-          <h3>Links Rápidos</h3>
+          <h3>Links </h3>
           <ul className="lista">
             <li><a href="/">Home</a></li>
             <li><a href="/">Menu</a></li>
@@ -37,4 +37,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

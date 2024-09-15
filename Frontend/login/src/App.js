@@ -1,5 +1,3 @@
-// app.js
-
 import React, { useState, useEffect } from 'react';
 import Rotas from './routes/routes';
 import './App.css';
@@ -14,15 +12,13 @@ function App() {
     localStorage.setItem('temaAtual', tema);
   }, [tema]);
 
-
   return (
     <>
       <NavBar tema={tema} setTema={setTema} />
       <div className={`container2 ${tema}`}>
         <Rotas />
       </div>
-    <Footer />
-
+      <Footer tema={tema} />
     </>
   );
 }
