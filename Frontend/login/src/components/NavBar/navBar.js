@@ -4,28 +4,36 @@ import logoEscura from "../../assets/logoPizza_escura.png";
 import sol from "../../assets/sol.png";
 import lua from "../../assets/lua.png";
 import { useState } from 'react';
+import imgAddClara from "../../assets/img_add_claro.png";
+import imgAddEscura from "../../assets/img_add_escuro.png";
+import Modal from '../../pages/admin/modal';
+import Paginaprivada from '../../pages/admin/Paginaprivada';
 
 export default function NavBar({ tema, setTema }) {
   const [navAberta, setNavAberta] = useState(false);
+  const [modalAberto, setModalAberto] = useState(false);
 
   const mudarTema = () => {
-    if (tema === 'light') {
-      setTema('dark');
-    } else {
-      setTema('light');
-    }
-  }
-
-  const Abrir = () => {
+    setTema(tema === 'light' ? 'dark' : 'light');
+  };
+  const abrirNav = () => {
     setNavAberta(!navAberta);
-  }
-
+  };
+  
+  const abrirModal = () => {
+    setModalAberto(true);
+  };
+  
+  const fecharModal = () => {
+    setModalAberto(false);
+  };
+  
   return (
     <>
       <nav>
         <div className={`navbar ${tema}`}>
           <img className='logo' width="100" height="100" src={tema === 'light' ? logoClara : logoEscura} alt="pizza" />
-          <div className={`hamburger ${navAberta ? 'active' : ''}`} onClick={Abrir}>
+          <div className={`hamburger ${navAberta ? 'active' : ''}`} onClick={abrirNav}>
             <div></div>
             <div></div>
             <div></div>
@@ -35,13 +43,17 @@ export default function NavBar({ tema, setTema }) {
             <li className='li_lista'><a href="#">Menu</a></li>
             <li className='li_lista'><a href="#">Contato</a></li>
             <li className='li_lista'>
-              <img className='mudaTema  someResponsiva' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
+              <img className='mudaTema someResponsiva' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
             </li>
           </ul>
           <img className='mudaTema some' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
 
+          <img className='img_add some' src={tema === 'light' ? imgAddEscura : imgAddClara} alt="" onClick={abrirModal} />
         </div>
       </nav>
+      <Modal modalAberto={modalAberto} fecharModal={fecharModal}>
+        <Paginaprivada setMenuItems={() => {}} menuItems={[]} />
+      </Modal>
     </>
-  )
+  );
 }
