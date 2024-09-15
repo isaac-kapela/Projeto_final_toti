@@ -23,10 +23,9 @@ const Footer = ({ tema }) => {
         <div className="conteudo-footer">
           <h3>Siga-nos</h3>
           <ul className="icones-sociais">
-            <li><a href="#"><i className="fab fa-facebook"></i></a></li>
-            <li><a href="#"><i className="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i className="fab fa-instagram"></i></a></li>
-            <li><a href="#"><i className="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.facebook.com/toti.diversidade" target="_blank"><i className="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/toti.diversidade/" target="_blank"><i className="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/school/toti-diversidade/posts/?feedView=all" target="_blank"><i className="fab fa-linkedin"></i></a></li>
           </ul>
         </div>
       </div>
