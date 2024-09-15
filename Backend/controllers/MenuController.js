@@ -21,14 +21,6 @@ class MenuController {
 
   async criar(req, res) {
     const { nome, descricao, preco, categoria, imagem, disponibilidade } = req.body;
-
-    if (!nome || !preco) {
-
-      res.status(400).json({ erro: 'Os campos nome e preco são obrigatórios.' });
-
-      return;
-    }
-
     try {
       const id = await adicionarItemMenu(nome, descricao, preco, categoria, imagem, disponibilidade);
       res.status(201).json({ id, message: 'Item adicionado com sucesso.' });

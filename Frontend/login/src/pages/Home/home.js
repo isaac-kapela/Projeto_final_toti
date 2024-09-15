@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./home.css";
+import Paginaprivada from "../admin/Paginaprivada";
 
 const ControllaMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -15,15 +16,17 @@ const ControllaMenu = () => {
       });
   }, []);
 
-
   return (
     <>
+    <div className="containerItens">
       <h2 className="titulo">Itens do Menu</h2>
+      <Paginaprivada setMenuItems={setMenuItems} menuItems={menuItems} />
       <ul className="lista">
         {menuItems.map(item => (
           <li key={item.id} className="item-menu">
             <div>
               <h3 className="titulo-item">{item.nome}</h3>
+              <img src={item.imagem} alt={item.nome} className="imagem-item" />
               <p className="descricao-item">{item.descricao}</p>
             </div>
             <div className="detalhes-item">
@@ -33,6 +36,7 @@ const ControllaMenu = () => {
           </li>
         ))}
       </ul>
+      </div>
     </>
   );
 };

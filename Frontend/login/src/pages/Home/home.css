@@ -10,11 +10,8 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f5ac3f;
-
+  background: #fad399;
 }
-
-
 
 .titulo {
   color: #333;
@@ -25,23 +22,37 @@ body {
 }
 
 .lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
   list-style: none;
+  padding: 20px;
 }
 
 .item-menu {
-  border-bottom: 1px solid #e1e1e1;
-  padding: 15px 0;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  padding: 20px;
   transition: background 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-menu:hover {
   background: #f9f9f9;
 }
 
+.imagem-item {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
 .titulo-item {
   color: #555;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .descricao-item {
@@ -67,5 +78,41 @@ body {
   color: #4CAF50;
   font-weight: bold;
   font-size: 14px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.campo-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.rotulo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-checkbox {
+  margin-left: 10px;
+}
+
+.botao-submit {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao-submit:hover {
+  background-color: #0056b3;
 }
 
