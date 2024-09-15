@@ -47,8 +47,8 @@ export default function NavBar({ tema, setTema }) {
             </li>
           </ul>
           <img className='mudaTema some' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
-
-          <img className='img_add some' src={tema === 'light' ? imgAddEscura : imgAddClara} alt="" onClick={abrirModal} />
+            
+          <img className='img_add some' src={tema === 'light' ? imgAddEscura : imgAddClara} alt="" onClick={abrirModal} style={{marginLeft: "10px"}} />
         </div>
       </nav>
       <Modal modalAberto={modalAberto} fecharModal={fecharModal}>

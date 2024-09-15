@@ -4,7 +4,7 @@ import "./footer.css";
 const Footer = ({ tema }) => {
   return (
     <footer className={tema}>
-      <div className="container">
+      <div className="containerFooter">
         <div className="conteudo-footer">
           <h3>Fale Conosco</h3>
           <p>Email: info@gmail.com</p>
