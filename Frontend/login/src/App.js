@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Rotas from './routes/routes';
 import './App.css';
 import NavBar from './components/NavBar/navBar.js';
+import Footer from "./components/Footer/footer.js"
 
 function App() {
   const temaAtual = localStorage.getItem('temaAtual');
@@ -20,6 +21,8 @@ function App() {
       <div className={`container2 ${tema}`}>
         <Rotas />
       </div>
+    <Footer />
+
     </>
   );
 }

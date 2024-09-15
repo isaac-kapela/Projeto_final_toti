@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./home.css";
-import NavBar from "../../components/NavBar/navBar.js";
 
 const ControllaMenu = () => {
   const [menuItems, setMenuItems] = useState([]);

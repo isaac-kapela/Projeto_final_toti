@@ -32,8 +32,8 @@ export default function NavBar({ tema, setTema }) {
           </div>
           <ul className={`ul_lista ${navAberta ? 'active' : ''}`}>
             <li className='li_lista'><a href="/home">Home</a></li>
-            <li className='li_lista'><a href="/menu">Menu</a></li>
-            <li className='li_lista'><a href="/contato">Contato</a></li>
+            <li className='li_lista'><a href="#">Menu</a></li>
+            <li className='li_lista'><a href="#">Contato</a></li>
             <li className='li_lista'>
               <img className='mudaTema  someResponsiva' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
             </li>
