@@ -40,8 +40,10 @@ body {
 }
 
 .item-menu:hover {
-  background: #f9f9f9;
+  background: #f0e9e9;
   transform: scale(1.05);
+  
+  
 }
 
 .imagem-item {
