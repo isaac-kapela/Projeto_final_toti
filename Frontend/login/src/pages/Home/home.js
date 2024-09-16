@@ -26,11 +26,7 @@ const ControllaMenu = () => {
   };
 
   const formatarDisponibilidade = (disponivel) => {
-    if (disponivel === 1) {
-      return "Sim";
-    } else {
-      return "Não";
-    }
+    return disponivel === 1 ? "Sim" : "Não";
   };
 
   return (

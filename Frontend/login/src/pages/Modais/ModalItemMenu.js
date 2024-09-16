@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import "./Modal.css";
+import { CarrinhoContexto } from '../../Context/ItemContext';
 
 export default function ModalItemMenu({ item, fecharModal }) {
+  const { adicionarAoCarrinho } = useContext(CarrinhoContexto); 
+
   if (!item) return null;
+
+  const handleAddToCarrinho = () => {
+    adicionarAoCarrinho(item);
+    fecharModal();
+  };
 
   return (
     <div className="modal">
@@ -15,7 +23,7 @@ export default function ModalItemMenu({ item, fecharModal }) {
           <p className="preco-item">Preço: {item.preco}</p>
           <p className="disponibilidade-item">Disponível: {item.disponivel ? "Sim" : "Não"}</p>
         </div>
-        <button className="botao">Adicionar ao carrinho</button>
+        <button className="botao" onClick={handleAddToCarrinho}>Adicionar ao carrinho</button>
       </div>
     </div>
   );

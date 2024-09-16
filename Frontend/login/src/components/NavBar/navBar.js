@@ -8,6 +8,7 @@ import imgAddClara from "../../assets/img_add_claro.png";
 import imgAddEscura from "../../assets/img_add_escuro.png";
 import Modal from '../../pages/admin/modal';
 import Paginaprivada from '../../pages/admin/Paginaprivada';
+import { Link } from 'react-router-dom';
 
 export default function NavBar({ tema, setTema }) {
   const [navAberta, setNavAberta] = useState(false);
@@ -39,8 +40,8 @@ export default function NavBar({ tema, setTema }) {
             <div></div>
           </div>
           <ul className={`ul_lista ${navAberta ? 'active' : ''}`}>
-            <li className='li_lista'><a href="/home">Home</a></li>
-            <li className='li_lista'><a href="#">Carinho</a></li>
+            <li className='li_lista'><Link to="/home">Home</Link></li>
+            <li className='li_lista'><Link to="/carinho">Carinho</Link></li>
             <li className='li_lista'><a href="#">Contato</a></li>
             <li className='li_lista'>
               <img className='mudaTema someResponsiva' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
