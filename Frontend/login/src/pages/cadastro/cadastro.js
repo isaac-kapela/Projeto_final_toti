@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import imgPizza from "../../assets/login-pizza.jpg";
 import Img_fundo from "../../assets/img_fundo.jpg";
+import { useNavigate } from 'react-router-dom';
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
@@ -9,6 +10,7 @@ export default function Cadastro() {
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
   const [mensagem, setMensagem] = useState('');
+  const navegar = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,15 +51,13 @@ export default function Cadastro() {
         opacity: 2.00,
       }}
     >
-
-<div className="flex items-center justify-center min-h-screen py-8 px-4"
+      <div className="flex items-center justify-center min-h-screen py-8 px-4"
         style={{
           WebkitBoxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
           MozBoxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
           boxShadow: '22px 17px 10px 14px rgba(0,0,0,0.75)',
         }}
       >
-        
         <div className="relative flex flex-col m-6 space-y-8 bg-white shadow-lg rounded-2xl md:flex-row md:space-y-0 max-w-4xl mx-auto">
           <div className="relative hidden md:block">
             <img src={imgPizza} alt="Imagem de ilustração" className="w-[300px] h-full rounded-l-2xl object-cover" />
@@ -74,7 +74,7 @@ export default function Cadastro() {
                   onChange={(e) => setNome(e.target.value)}
                   required
                   placeholder="fulano"
-                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500 text-black"
                 />
               </div>
               <div className="py-3">
@@ -85,7 +85,7 @@ export default function Cadastro() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="fulano@gmail.com"
-                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500 text-black"
                 />
               </div>
               <div className="py-3">
@@ -96,7 +96,7 @@ export default function Cadastro() {
                   onChange={(e) => setSenha(e.target.value)}
                   required
                   placeholder="••••••••"
-                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500 text-black"
                 />
               </div>
               <div className="py-3">
@@ -107,12 +107,16 @@ export default function Cadastro() {
                   onChange={(e) => setConfirmarSenha(e.target.value)}
                   required
                   placeholder="••••••••"
-                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
+                  className="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500 text-black"
                 />
               </div>
               <button type="submit" className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300">
                 Registrar
               </button>
+
+              <p className="text-center text-gray-400 mt-4">
+                Voltar para tela de <span className="font-bold text-black cursor-pointer" onClick={() => navegar('/login')}>Login</span>
+              </p>
               {mensagem && (
                 <p
                   className={`mt-2 ${mensagem.includes('sucesso') ? 'text-green-500' : 'text-red-500'}`}
@@ -124,7 +128,6 @@ export default function Cadastro() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
