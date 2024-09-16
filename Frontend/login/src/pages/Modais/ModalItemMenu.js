@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import "./Modal.css";
-import { CarrinhoContexto } from '../../Context/ItemContext';
+import { CarrinhoContexto } from '../../Context/ItemContext'; 
 
 export default function ModalItemMenu({ item, fecharModal }) {
   const { adicionarAoCarrinho } = useContext(CarrinhoContexto); 
@@ -8,6 +8,7 @@ export default function ModalItemMenu({ item, fecharModal }) {
   if (!item) return null;
 
   const handleAddToCarrinho = () => {
+    console.log("Adicionando ao carrinho:", item);
     adicionarAoCarrinho(item);
     fecharModal();
   };
