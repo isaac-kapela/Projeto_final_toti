@@ -8,8 +8,14 @@ import Footer from "./components/Footer/footer.js";
 function App() {
   const location = useLocation();
   const temaAtual = localStorage.getItem('temaAtual');
-  const [tema, setTema] = useState(temaAtual ? temaAtual : 'light');  
-
+  let temaInicial;
+  if (temaAtual !== null) {
+    temaInicial = temaAtual;
+  } else {
+    temaInicial = 'light';
+  }
+  
+  const [tema, setTema] = useState(temaInicial);
   useEffect(() => {
     localStorage.setItem('temaAtual', tema);
   }, [tema]);
