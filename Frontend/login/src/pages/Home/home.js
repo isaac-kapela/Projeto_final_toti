@@ -26,7 +26,9 @@ const ControllaMenu = () => {
   };
 
   const formatarDisponibilidade = (disponivel) => {
-    return disponivel === 1 ? "Sim" : "Não";
+   // console.log(disponivel);
+
+    return disponivel == true  ? "Sim" : "Não";
   };
 
   return (
@@ -43,7 +45,7 @@ const ControllaMenu = () => {
               </div>
               <div className="detalhes-item">
                 <p className="preco-item">Preço: R${item.preco}</p>
-                <p className="disponibilidade-item">Disponível: {formatarDisponibilidade(item.disponivel)}</p>
+                <p className="disponibilidade-item">Disponível: {formatarDisponibilidade(item.disponibilidade)}</p>
               </div>
             </li>
           ))}
