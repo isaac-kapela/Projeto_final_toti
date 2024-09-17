@@ -6,7 +6,7 @@ import NavBar from './components/NavBar/navBar.js';
 import Footer from "./components/Footer/footer.js";
 
 function App() {
-  const location = useLocation();
+  const localizacao = useLocation();
   const temaAtual = localStorage.getItem('temaAtual');
   let temaInicial;
   if (temaAtual !== null) {
@@ -20,7 +20,7 @@ function App() {
     localStorage.setItem('temaAtual', tema);
   }, [tema]);
 
-  const telaproibida = location.pathname === '/login' || location.pathname === '/' || location.pathname === '/cadastro';
+  const telaproibida = localizacao.pathname === '/login' || localizacao.pathname === '/' || localizacao.pathname === '/cadastro';
 
   return (
     <>
