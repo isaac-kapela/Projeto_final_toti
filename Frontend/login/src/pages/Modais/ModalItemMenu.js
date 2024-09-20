@@ -7,10 +7,10 @@ export default function ModalItemMenu({ item, fecharModal }) {
 
   if (!item) return null;
 
-  const handleAddToCarrinho = () => {
-    console.log("Adicionando ao carrinho:", item);
-    adicionarAoCarrinho(item);
-    fecharModal();
+  const handleAdicionarCarrinho = () => {
+    console.log("Adicionando ao carrinho:", item); 
+    adicionarAoCarrinho(item); 
+    fecharModal(); 
   };
 
   return (
@@ -21,10 +21,10 @@ export default function ModalItemMenu({ item, fecharModal }) {
         <img src={item.imagem} alt={item.nome} className="imagem-item" />
         <p className="descricao-item">{item.descricao}</p>
         <div className="detalhes-item">
-          <p className="preco-item">Preço: {item.preco}</p>
-          <p className="disponibilidade-item">Disponível: {item.disponivel ? "Sim" : "Não"}</p>
+          <p className="preco-item">Preço: R${item.preco}</p>
+          <p className="disponibilidade-item">Disponível: {item.disponibilidade ? "Sim" : "Não"}</p>
         </div>
-        <button className="botao" onClick={handleAddToCarrinho}>Adicionar ao carrinho</button>
+        <button className="botao" onClick={handleAdicionarCarrinho}>Adicionar ao carrinho</button>
       </div>
     </div>
   );
