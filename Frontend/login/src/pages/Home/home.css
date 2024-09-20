@@ -31,12 +31,19 @@ body {
 
 .item-menu {
   border: 1px solid #e1e1e1;
-  border-radius: 8px;
-  padding: 20px;
+  border-radius: 15px;
+  padding: 15px;
   transition: background 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 30%; 
-  background-color: rgb(253, 252, 252);
+  width: 25%; 
+  background-color: #f4ebe1;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
 }
 
 .item-menu:hover {
@@ -47,7 +54,7 @@ body {
 }
 
 .imagem-item {
-  width: 100%;
+  width: 80%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -127,6 +134,7 @@ body {
   align-items: center;
   flex-direction: column;
   margin-bottom: 50px;
+  padding: 80px;
 }
 
 .imagem-item img{

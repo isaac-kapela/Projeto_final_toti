@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import './landigPage.css';
 import { FaPhone } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';

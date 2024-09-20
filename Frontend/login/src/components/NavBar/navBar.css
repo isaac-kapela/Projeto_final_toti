@@ -10,7 +10,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f5f5f5; 
     color: #333333;
     padding: 15px 7%;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -53,7 +52,7 @@
 }
 
 .navbar.light {
-    background-color: #f5f5f5; 
+    background-color: #ff5500; 
     color: #333333; 
 }
 

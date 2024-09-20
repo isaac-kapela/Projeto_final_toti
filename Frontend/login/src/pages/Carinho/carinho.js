@@ -1,14 +1,32 @@
 import React, { useContext } from 'react';
 import './carinho.css';
 import { CarrinhoContexto } from '../../Context/ItemContext'; 
+import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 
 export default function Carinho() {
-  const { itensDoCarrinho } = useContext(CarrinhoContexto);
+  const { itensDoCarrinho, setItensDoCarrinho } = useContext(CarrinhoContexto);
 
   let total = 0;
   for (let i = 0; i < itensDoCarrinho.length; i++) {
-    total += itensDoCarrinho[i].preco;
+    total += itensDoCarrinho[i].preco * itensDoCarrinho[i].quantidade;
   }
+
+  const handleDelete = (id) => {
+    setItensDoCarrinho(itensDoCarrinho.filter(item => item.id !== id));
+    console.log('Item removido do carrinho:', id);
+  };
+
+  const handleSomar = (id) => {
+    setItensDoCarrinho(itensDoCarrinho.map(item => 
+      item.id === id ? { ...item, quantidade: item.quantidade + 1 } : { ...item, quantidade: 1 }
+    ));
+  };
+
+  const handleSubtrair = (id) => {
+    setItensDoCarrinho(itensDoCarrinho.map(item => 
+      item.id === id && item.quantidade > 1 ? { ...item, quantidade: item.quantidade - 1 } : item
+    ));
+  };
 
   return (
     <div className="carinho-container">
@@ -19,7 +37,21 @@ export default function Carinho() {
         {itensDoCarrinho.length ? (
           itensDoCarrinho.map((item, index) => (
             <li key={index} className="carinho-item">
-              {item.nome} - R${item.preco}
+              <span>{item.nome} - R${item.preco}:  <span className='quantidade'>{item.quantidade}</span></span>
+              <div className="item-actions">
+                <FaMinus 
+                  className="action-icon" 
+                  onClick={() => handleSubtrair(item.id)} 
+                />
+                <FaPlus 
+                  className="action-icon" 
+                  onClick={() => handleSomar(item.id)} 
+                />
+                <FaTrash 
+                  className="action-icon" 
+                  onClick={() => handleDelete(item.id)} 
+                />
+              </div>
             </li>
           ))
         ) : (

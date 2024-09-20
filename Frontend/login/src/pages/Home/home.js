@@ -41,7 +41,6 @@ const ControllaMenu = () => {
               <div>
                 <h3 className="titulo-item">{item.nome}</h3>
                 <img src={item.imagem} alt={item.nome} className="imagem-item" />
-                <p className="descricao-item">{item.descricao}</p>
               </div>
               <div className="detalhes-item">
                 <p className="preco-item">Preço: R${item.preco}</p>
