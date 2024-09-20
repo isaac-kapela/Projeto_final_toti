@@ -5,6 +5,7 @@ import Cadastro from '../pages/cadastro/cadastro';
 import Home from '../pages/Home/home';
 import Carinho from '../pages/Carinho/carinho';
 import LandingPage from '../pages/LandingPage/landigPage';
+import RotasPrivadas from './rotasPrivadas'; 
 
 function AppRoutes() {
   return (
@@ -12,8 +13,16 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/" element={<LandingPage />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/carinho" element={<Carinho />} />
+      <Route path="/home" element={
+        <RotasPrivadas>
+          <Home />
+        </RotasPrivadas>
+      } />
+      <Route path="/carinho" element={
+        <RotasPrivadas>
+          <Carinho />
+        </RotasPrivadas>
+      } />
     </Routes>
   );
 }

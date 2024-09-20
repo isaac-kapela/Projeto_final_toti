@@ -2,7 +2,7 @@ import express from 'express';
 import MenuController from './controllers/MenuController.js';
 import cors from 'cors';
 
-//import checarToken from './controllers/checkartoken.js';
+import checarToken from './controllers/checkartoken.js';
 
 const app = express();
 
@@ -18,9 +18,9 @@ const corsOptions = {
   app.use(cors(corsOptions));
   
 
-app.get('/', MenuController.listar);
-app.post('/criar',  MenuController.criar);
-app.put('/editar/:id',  MenuController.editar);
-app.delete('/excluir/:id',  MenuController.excluir);
+app.get('/', checarToken, MenuController.listar);
+app.post('/criar', checarToken, MenuController.criar);
+app.put('/editar/:id', checarToken,  MenuController.editar);
+app.delete('/excluir/:id', checarToken, MenuController.excluir);
 
 export default app;
