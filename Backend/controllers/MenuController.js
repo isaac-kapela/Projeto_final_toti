@@ -2,10 +2,11 @@ import { db, adicionarItemMenu } from '../DB/db.js';
 
 class MenuController {
   async listar(req, res) {
-    const sql = 'SELECT * FROM menu';
+    const limit = parseInt(req.query.limit) || 10; 
+    const sql = 'SELECT * FROM menu LIMIT ?';
     try {
       const resultado = await new Promise((resolve, reject) => {
-        db.all(sql, [], (erro, resultado) => {
+        db.all(sql, [limit], (erro, resultado) => {
           if (erro) {
             reject(erro);
           } else {
@@ -24,13 +25,10 @@ class MenuController {
     try {
       const id = await adicionarItemMenu(nome, descricao, preco, categoria, imagem, disponibilidade);
       res.status(201).json({ id, message: 'Item adicionado com sucesso.' });
-
     } catch (erro) {
       res.status(400).json({ erro: erro.message });
     }
-
   }
-  
 
   async excluir(req, res) {
     const { id } = req.params;

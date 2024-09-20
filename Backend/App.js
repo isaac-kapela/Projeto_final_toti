@@ -6,7 +6,6 @@ const app = express();
 
 app.use(express.json());
 
-// Rotas
 app.get('/', MenuController.listar);
 app.post('/criar',  MenuController.criar);
 app.put('/editar/:id',  MenuController.editar);
