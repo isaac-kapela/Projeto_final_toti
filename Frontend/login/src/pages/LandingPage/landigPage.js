@@ -87,7 +87,7 @@ const LandingPage = () => {
             </section>
 
             <section id="menu">
-                <h2 className="section-title">Cardápio</h2>
+                {/* <h2 className="section-title">Cardápio</h2> */}
                 <h3 className="section-subtitle">Nossas pizzas especiais</h3>
 
                 <div id="pizzas">

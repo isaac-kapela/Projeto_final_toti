@@ -5,7 +5,8 @@ import Cadastro from '../pages/cadastro/cadastro';
 import Home from '../pages/Home/home';
 import Carinho from '../pages/Carinho/carinho';
 import LandingPage from '../pages/LandingPage/landigPage';
-import RotasPrivadas from './rotasPrivadas'; 
+import RotasPrivadas from './rotasPrivadas';
+import Dashboard from '../pages/admin/dashboard';
 
 function AppRoutes() {
   return (
@@ -21,6 +22,12 @@ function AppRoutes() {
       <Route path="/carinho" element={
         <RotasPrivadas>
           <Carinho />
+        </RotasPrivadas>
+      } />
+
+      <Route path="/dashboard" element={
+        <RotasPrivadas>
+          <Dashboard />
         </RotasPrivadas>
       } />
     </Routes>
