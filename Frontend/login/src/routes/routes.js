@@ -9,6 +9,7 @@ import RotasPrivadas from "./rotasPrivadas";
 import Dashboard from "../pages/admin/Dashboard/dashboard";
 import Nao44 from "../pages/404-ERRO/NaoEcontrado";
 import Perfis from "../pages/admin/Perfis/perfis";
+import Produtos from "../pages/admin/produtos/produtos";
 
 function AppRoutes() {
   return (
@@ -52,7 +53,18 @@ function AppRoutes() {
           </RotasPrivadas>
         }
       />
+
+      <Route
+        path="/produtos"
+        element={
+          <RotasPrivadas>
+            <Produtos />
+          </RotasPrivadas>
+        }
+      />
     </Routes>
+
+
   );
 }
 

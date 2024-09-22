@@ -15,9 +15,9 @@ const BarraLateral = () => {
   const [indiceAtivo, setIndiceAtivo] = useState(0);
 
   const itensMenu = [
-    { icone: homeOutline, texto: "Home", cor: "#c60000", caminho: "/" },
+    { icone: homeOutline, texto: "dashboard", cor: "#c60000", caminho: "/dashboard" },
     { icone: peopleOutline, texto: "Perfis", cor: "#ffa117", caminho: "/perfis" },
-    { icone: cartOutline, texto: "Produtos", cor: "#c60000", caminho: "/produtos" },
+    { icone: cartOutline, texto: "Produtos", cor: "#c60000", caminho: "/Produtos" },
     { icone: statsChartOutline, texto: "Quantidade", cor: "#ffa117", caminho: "/quantidade" },
     { icone: settingsOutline, texto: "Configurações", cor: "#c60000", caminho: "/configuracoes" },
   ];
