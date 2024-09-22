@@ -9,18 +9,18 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-    origin: 'http://localhost:3000', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200,
-  };
-  
-  app.use(cors(corsOptions));
-  
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  optionsSuccessStatus: 200,
+};
 
-app.get('/',  MenuController.listar);
-app.post('/criar',  MenuController.criar);
-app.put('/editar/:id', checarToken,  MenuController.editar);
-app.delete('/excluir/:id',  MenuController.excluir);
+app.use(cors(corsOptions));
+
+
+app.get('/', checarToken, MenuController.listar);
+app.post('/criar', checarToken, MenuController.criar);
+app.put('/editar/:id', checarToken, MenuController.editar);
+app.delete('/excluir/:id', checarToken, MenuController.excluir);
 
 export default app;
