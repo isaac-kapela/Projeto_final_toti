@@ -1,4 +1,3 @@
-
 .container-dashboard {
   padding: 20px;
   max-width: 1200px;
@@ -11,9 +10,9 @@
 h1, h2 {
   text-align: center;
   color: #333;
-
 }
-h1{
+
+h1 {
   margin-bottom: 20px;
   font-weight: bold;
 }
@@ -67,7 +66,7 @@ input[type="checkbox"] {
   color: white;
 }
 
-.Btns-container{
+.Btns-container {
   display: flex;
   justify-content: center;
 }
@@ -130,5 +129,29 @@ input[type="checkbox"] {
     left: 10px;
     width: calc(50% - 20px);
     font-weight: bold;
+  }
+}
+
+@media (max-width: 480px) {
+  .campo-input {
+    max-width: 100%;
+  }
+
+  .botao-adicionar, .botao-editar, .botao-remover {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Btns-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabela-produtos td, .tabela-produtos th {
+    padding-left: 40%;
+  }
+
+  .tabela-produtos td:before, .tabela-produtos th:before {
+    width: calc(40% - 20px);
   }
 }
