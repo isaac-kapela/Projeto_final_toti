@@ -4,6 +4,7 @@ import "./dashboard.css";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideBar from "../../../components/sideBar/sideBar";
+
 const DashboardProdutos = () => {
   const [produtos, setProdutos] = useState([]);
   const [novoProduto, setNovoProduto] = useState({
@@ -114,10 +115,10 @@ const DashboardProdutos = () => {
   return (
     <div className="container-dashboard">
       <SideBar />
-      <h1>Gerenciador de Produtos</h1>
       <button onClick={handleLogout} className="botao-logout">
         Sair
       </button>
+      <h1>Gerenciador de Produtos</h1>
 
       <div className="secao-adicionar-produto">
         <h2>Adicionar Produto</h2>
