@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "./dashboard.css";
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SideBar from "../../components/sideBar/sideBar";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SideBar from "../../../components/sideBar/sideBar";
 const DashboardProdutos = () => {
   const [produtos, setProdutos] = useState([]);
   const [novoProduto, setNovoProduto] = useState({
@@ -15,18 +15,18 @@ const DashboardProdutos = () => {
     disponibilidade: true,
   });
 
-  const navegar = useNavigate(); 
+  const navegar = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); 
-    navegar('/login'); 
+    localStorage.removeItem("token");
+    navegar("/login");
   };
 
   const buscarProdutos = async () => {
     try {
       const resposta = await fetch("http://localhost:8080/menu", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, 
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
       const dados = await resposta.json();
@@ -37,7 +37,7 @@ const DashboardProdutos = () => {
   };
 
   useEffect(() => {
-    buscarProdutos(); 
+    buscarProdutos();
   }, []);
 
   const adicionarProduto = async () => {
@@ -47,12 +47,12 @@ const DashboardProdutos = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`, 
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify(novoProduto),
         });
         const dados = await resposta.json();
-        setProdutos([...produtos, dados]); 
+        setProdutos([...produtos, dados]);
         setNovoProduto({
           nome: "",
           descricao: "",
@@ -72,10 +72,10 @@ const DashboardProdutos = () => {
       await fetch(`http://localhost:8080/excluir/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, 
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       });
-      setProdutos(produtos.filter((produto) => produto.id !== id)); 
+      setProdutos(produtos.filter((produto) => produto.id !== id));
     } catch (erro) {
       console.error("Erro ao remover produto:", erro);
     }
@@ -88,7 +88,7 @@ const DashboardProdutos = () => {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`, 
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify(novoProduto),
         });
@@ -113,10 +113,11 @@ const DashboardProdutos = () => {
 
   return (
     <div className="container-dashboard">
-
       <SideBar />
       <h1>Gerenciador de Produtos</h1>
-      <button onClick={handleLogout} className="botao-logout">Sair</button>
+      <button onClick={handleLogout} className="botao-logout">
+        Sair
+      </button>
 
       <div className="secao-adicionar-produto">
         <h2>Adicionar Produto</h2>
@@ -125,42 +126,57 @@ const DashboardProdutos = () => {
           placeholder="Nome do produto"
           className="campo-input"
           value={novoProduto.nome}
-          onChange={(e) => setNovoProduto({ ...novoProduto, nome: e.target.value })}
+          onChange={(e) =>
+            setNovoProduto({ ...novoProduto, nome: e.target.value })
+          }
         />
         <input
           type="text"
           placeholder="Descrição"
           className="campo-input"
           value={novoProduto.descricao}
-          onChange={(e) => setNovoProduto({ ...novoProduto, descricao: e.target.value })}
+          onChange={(e) =>
+            setNovoProduto({ ...novoProduto, descricao: e.target.value })
+          }
         />
         <input
           type="number"
           placeholder="Preço"
           className="campo-input"
           value={novoProduto.preco}
-          onChange={(e) => setNovoProduto({ ...novoProduto, preco: e.target.value })}
+          onChange={(e) =>
+            setNovoProduto({ ...novoProduto, preco: e.target.value })
+          }
         />
         <input
           type="text"
           placeholder="Categoria"
           className="campo-input"
           value={novoProduto.categoria}
-          onChange={(e) => setNovoProduto({ ...novoProduto, categoria: e.target.value })}
+          onChange={(e) =>
+            setNovoProduto({ ...novoProduto, categoria: e.target.value })
+          }
         />
         <input
           type="text"
           placeholder="Imagem (URL)"
           className="campo-input"
           value={novoProduto.imagem}
-          onChange={(e) => setNovoProduto({ ...novoProduto, imagem: e.target.value })}
+          onChange={(e) =>
+            setNovoProduto({ ...novoProduto, imagem: e.target.value })
+          }
         />
         <label>
           Disponibilidade:
           <input
             type="checkbox"
             checked={novoProduto.disponibilidade}
-            onChange={(e) => setNovoProduto({ ...novoProduto, disponibilidade: e.target.checked })}
+            onChange={(e) =>
+              setNovoProduto({
+                ...novoProduto,
+                disponibilidade: e.target.checked,
+              })
+            }
           />
         </label>
         <button className="botao-adicionar" onClick={adicionarProduto}>
@@ -191,13 +207,21 @@ const DashboardProdutos = () => {
                 <td>{produto.descricao}</td>
                 <td>{produto.preco}</td>
                 <td>{produto.categoria}</td>
-                <td><img src={produto.imagem} alt={produto.nome} width="50" /></td>
+                <td>
+                  <img src={produto.imagem} alt={produto.nome} width="50" />
+                </td>
                 <td>{produto.disponibilidade ? "Sim" : "Não"}</td>
                 <td className="Btns-container">
-                  <button className="botao-editar" onClick={() => editarProduto(produto.id)}>
+                  <button
+                    className="botao-editar"
+                    onClick={() => editarProduto(produto.id)}
+                  >
                     <FontAwesomeIcon icon={faEdit} /> Editar
                   </button>
-                  <button className="botao-remover" onClick={() => removerProduto(produto.id)}>
+                  <button
+                    className="botao-remover"
+                    onClick={() => removerProduto(produto.id)}
+                  >
                     <FontAwesomeIcon icon={faTrash} /> Remover
                   </button>
                 </td>

@@ -1,9 +1,9 @@
-require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -19,6 +19,15 @@ const db_user = process.env.DB_USER;
 const db_Senha = process.env.DB_SENHA;
 
 const User = require("./models/User");
+
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find({}, "-senha");
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao buscar usuários" });
+  }
+});
 
 app.get("/", (req, res) => {
   res.status(200).json({ message: "bão?" });

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./sideBar.css";
 import { IonIcon } from "@ionic/react";
 import {
@@ -9,41 +10,41 @@ import {
   settingsOutline,
 } from "ionicons/icons";
 
-const SideBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
+const BarraLateral = () => {
+  const [estaAberto, setEstaAberto] = useState(false);
+  const [indiceAtivo, setIndiceAtivo] = useState(0);
 
-  const menuItems = [
-    { icon: homeOutline, text: "Home", color: "#c60000" },
-    { icon: peopleOutline, text: "Perfis", color: "#ffa117" },
-    { icon: cartOutline, text: "Produtos", color: "#c60000" },
-    { icon: statsChartOutline, text: "Quantidade", color: "#ffa117" },
-    { icon: settingsOutline, text: "Configurações", color: "#c60000" },
+  const itensMenu = [
+    { icone: homeOutline, texto: "Home", cor: "#c60000", caminho: "/" },
+    { icone: peopleOutline, texto: "Perfis", cor: "#ffa117", caminho: "/perfis" },
+    { icone: cartOutline, texto: "Produtos", cor: "#c60000", caminho: "/produtos" },
+    { icone: statsChartOutline, texto: "Quantidade", cor: "#ffa117", caminho: "/quantidade" },
+    { icone: settingsOutline, texto: "Configurações", cor: "#c60000", caminho: "/configuracoes" },
   ];
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const alternarMenu = () => setEstaAberto(!estaAberto);
 
-  const handleMenuClick = (index) => {
-    setActiveIndex(index);
+  const handleMenuClick = (indice) => {
+    setIndiceAtivo(indice);
   };
 
   return (
-    <div className={`navegacao ${isOpen ? "open" : ""}`}>
-      <div className="alternar_menu" onClick={toggleMenu}></div>
+    <div className={`navegacao ${estaAberto ? "open" : ""}`}>
+      <div className="alternar_menu" onClick={alternarMenu}></div>
       <ul>
-        {menuItems.map((item, index) => (
+        {itensMenu.map((item, indice) => (
           <li
-            key={index}
-            className={`lista ${activeIndex === index ? "ativa" : ""}`}
-            style={{ "--clr": item.color }}
-            onClick={() => handleMenuClick(index)}
+            key={indice}
+            className={`lista ${indiceAtivo === indice ? "ativa" : ""}`}
+            style={{ "--clr": item.cor }}
+            onClick={() => handleMenuClick(indice)}
           >
-            <a href="#">
-              <span className="icon">
-                <IonIcon icon={item.icon} />
+            <Link to={item.caminho}>
+              <span className="icone">
+                <IonIcon icon={item.icone} />
               </span>
-              <span className="text">{item.text}</span>
-            </a>
+              <span className="texto">{item.texto}</span>
+            </Link>
           </li>
         ))}
       </ul>
@@ -51,4 +52,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default BarraLateral;
