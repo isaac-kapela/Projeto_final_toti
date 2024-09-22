@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './perfis.css';
+import SideBar from "../../../components/sideBar/sideBar";
+
 
 export default function Perfis() {
   const [usuarios, setUsuarios] = useState([]);
@@ -20,6 +22,7 @@ export default function Perfis() {
 
   return (
     <div className="containerPerfis">
+        <SideBar />
       <h1>Lista de Usuários</h1>
       <p>Total de Usuários: {usuarios.length}</p>
       <ul className='ul_perfil'>
