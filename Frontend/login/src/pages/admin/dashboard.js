@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import "./dashboard.css";
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +14,13 @@ const DashboardProdutos = () => {
     imagem: "",
     disponibilidade: true,
   });
+
+  const navegar = useNavigate(); 
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); 
+    navegar('/login'); 
+  };
 
   const buscarProdutos = async () => {
     try {
@@ -106,6 +114,7 @@ const DashboardProdutos = () => {
   return (
     <div className="container-dashboard">
       <h1>Gerenciador de Produtos</h1>
+      <button onClick={handleLogout} className="botao-logout">Sair</button>
 
       <div className="secao-adicionar-produto">
         <h2>Adicionar Produto</h2>
@@ -184,10 +193,10 @@ const DashboardProdutos = () => {
                 <td>{produto.disponibilidade ? "Sim" : "Não"}</td>
                 <td className="Btns-container">
                   <button className="botao-editar" onClick={() => editarProduto(produto.id)}>
-                  <FontAwesomeIcon icon={faEdit} /> Editar
+                    <FontAwesomeIcon icon={faEdit} /> Editar
                   </button>
                   <button className="botao-remover" onClick={() => removerProduto(produto.id)}>
-                  <FontAwesomeIcon icon={faTrash} /> Remover
+                    <FontAwesomeIcon icon={faTrash} /> Remover
                   </button>
                 </td>
               </tr>

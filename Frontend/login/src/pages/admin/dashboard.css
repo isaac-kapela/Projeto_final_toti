@@ -42,7 +42,7 @@ input[type="checkbox"] {
   margin-left: 5px;
 }
 
-.botao-adicionar, .botao-editar, .botao-remover {
+.botao-adicionar, .botao-editar, .botao-remover, .botao-logout {
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;
@@ -66,12 +66,18 @@ input[type="checkbox"] {
   color: white;
 }
 
+.botao-logout {
+  background-color: #ff6347;
+  color: white;
+  margin-bottom: 20px;
+}
+
 .Btns-container {
   display: flex;
   justify-content: center;
 }
 
-.botao-adicionar:hover, .botao-editar:hover, .botao-remover:hover {
+.botao-adicionar:hover, .botao-editar:hover, .botao-remover:hover, .botao-logout:hover {
   opacity: 0.9;
 }
 
@@ -137,7 +143,7 @@ input[type="checkbox"] {
     max-width: 100%;
   }
 
-  .botao-adicionar, .botao-editar, .botao-remover {
+  .botao-adicionar, .botao-editar, .botao-remover, .botao-logout {
     width: 100%;
     margin-bottom: 10px;
   }
