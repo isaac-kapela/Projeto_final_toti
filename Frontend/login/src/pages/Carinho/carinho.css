@@ -125,7 +125,7 @@
 @media (max-width: 768px) {
   .carinho-container {
     width: 90%; 
-}
+  }
 
   .carinho-item {
     font-size: 1em; 
@@ -145,5 +145,23 @@
   .btn-fina {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .carinho-header {
+    font-size: 1.5em;
+  }
+
+  .carinho-item {
+    font-size: 0.9em;
+  }
+
+  .total-preco {
+    font-size: 1.2em;
+  }
+
+  .btn-fina {
+    padding: 10px 20px;
   }
 }

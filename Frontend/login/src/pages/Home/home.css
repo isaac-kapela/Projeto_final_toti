@@ -23,8 +23,8 @@ body {
 
 .lista {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   list-style: none;
   padding: 20px;
 }
@@ -35,7 +35,6 @@ body {
   padding: 15px;
   transition: background 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 25%; 
   background-color: #f4ebe1;
   cursor: pointer;
   text-align: center;
@@ -43,14 +42,11 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-
 }
 
 .item-menu:hover {
   background: #f0e9e9;
   transform: scale(1.05);
-  
-  
 }
 
 .imagem-item {
@@ -137,9 +133,51 @@ body {
   padding: 80px;
 }
 
-.imagem-item img{
+.imagem-item img {
   width: 50%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lista {
+    grid-template-columns: 1fr;
+  }
+
+  .item-menu {
+    width: 100%;
+  }
+
+  .imagem-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 20px;
+  }
+
+  .titulo-item {
+    font-size: 16px;
+  }
+
+  .preco-item {
+    font-size: 14px;
+  }
+
+  .disponibilidade-item {
+    font-size: 12px;
+  }
+
+  .botao-submit {
+    padding: 8px 16px;
+  }
 }
