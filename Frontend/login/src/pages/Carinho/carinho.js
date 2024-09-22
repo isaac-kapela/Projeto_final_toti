@@ -1,15 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './carinho.css';
 import { CarrinhoContexto } from '../../Context/ItemContext'; 
 import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 
 export default function Carinho() {
   const { itensDoCarrinho, setItensDoCarrinho } = useContext(CarrinhoContexto);
+  const [total, setTotal] = useState(0);
 
-  let total = 0;
-  for (let i = 0; i < itensDoCarrinho.length; i++) {
-    total += itensDoCarrinho[i].preco * itensDoCarrinho[i].quantidade;
-  }
+  useEffect(() => {
+    let NovoTotal = 0;
+    for (let i = 0; i < itensDoCarrinho.length; i++) {
+      NovoTotal += itensDoCarrinho[i].preco * itensDoCarrinho[i].quantidade;
+    }
+    setTotal(NovoTotal);
+  }, [itensDoCarrinho]);
 
   const handleDelete = (id) => {
     setItensDoCarrinho(itensDoCarrinho.filter(item => item.id !== id));
@@ -18,7 +22,7 @@ export default function Carinho() {
 
   const handleSomar = (id) => {
     setItensDoCarrinho(itensDoCarrinho.map(item => 
-      item.id === id ? { ...item, quantidade: item.quantidade + 1 } : { ...item, quantidade: 1 }
+      item.id === id ? { ...item, quantidade: item.quantidade + 1 } : item
     ));
   };
 
