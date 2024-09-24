@@ -5,6 +5,7 @@ import "./dashboard.css";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideBar from "../../../components/sideBar/sideBar";
+import Modal from "../modal/modal"; 
 
 const Dashboard = () => {
   const [produtos, setProdutos] = useState([]);
@@ -16,6 +17,8 @@ const Dashboard = () => {
     imagem: "",
     disponibilidade: true,
   });
+  const [isModalAberto, setIsModalAberto] = useState(false); 
+  const [produtoParaEditar, setProdutoParaEditar] = useState(null); 
 
   const navegar = useNavigate();
 
@@ -30,7 +33,7 @@ const Dashboard = () => {
       if (token) {
         const resposta = await axios.get("http://localhost:8080/menu", {
           headers: {
-            Authorization: `Bearer ${token}`, // Enviando o token no formato correto
+            Authorization: `Bearer ${token}`, 
           },
         });
         setProdutos(resposta.data);
@@ -53,7 +56,7 @@ const Dashboard = () => {
         const resposta = await axios.post("http://localhost:8080/criar", novoProduto, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,  // Adicionando o token no cabeçalho
+            Authorization: `Bearer ${token}`, 
           },
         });
         setProdutos([...produtos, resposta.data]);
@@ -89,28 +92,30 @@ const Dashboard = () => {
     }
   };
 
-  const editarProduto = async (id) => {
+  const editarProduto = (produto) => {
+    setProdutoParaEditar(produto); 
+    setIsModalAberto(true); 
+  };
+
+  const handleModalClose = () => {
+    setIsModalAberto(false); 
+    setProdutoParaEditar(null); 
+  };
+
+  const salvarProduto = async (produtoEditado) => {
     const token = localStorage.getItem('token');
-    if (novoProduto.nome && novoProduto.preco && token) {
+    if (produtoEditado.nome && produtoEditado.preco && token) {
       try {
-        const resposta = await axios.put(`http://localhost:8080/editar/${id}`, novoProduto, {
+        const resposta = await axios.put(`http://localhost:8080/editar/${produtoEditado.id}`, produtoEditado, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,  // Passando o token ao editar produto
+            Authorization: `Bearer ${token}`,  
           },
         });
         const produtosAtualizados = produtos.map((produto) =>
-          produto.id === id ? resposta.data : produto
+          produto.id === produtoEditado.id ? resposta.data : produto
         );
         setProdutos(produtosAtualizados);
-        setNovoProduto({
-          nome: "",
-          descricao: "",
-          preco: "",
-          categoria: "",
-          imagem: "",
-          disponibilidade: true,
-        });
       } catch (erro) {
         console.error("Erro ao editar produto:", erro);
       }
@@ -220,7 +225,7 @@ const Dashboard = () => {
                 <td className="Btns-container">
                   <button
                     className="botao-editar"
-                    onClick={() => editarProduto(produto.id)}
+                    onClick={() => editarProduto(produto)}
                   >
                     <FontAwesomeIcon icon={faEdit} /> Editar
                   </button>
@@ -236,6 +241,10 @@ const Dashboard = () => {
           </tbody>
         </table>
       </div>
+
+      {isModalAberto && (
+        <Modal produto={produtoParaEditar} onClose={handleModalClose} onSave={salvarProduto} />
+      )}
     </div>
   );
 };
