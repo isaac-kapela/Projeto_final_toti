@@ -69,10 +69,14 @@ p {
   color: #666;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .containerProdutos {
       padding: 15px;
+
+  }
+
+  .li_produto {
+      font-size: 0.90rem
   }
 
   .li_produto {

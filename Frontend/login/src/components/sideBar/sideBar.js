@@ -7,7 +7,7 @@ import {
   peopleOutline,
   cartOutline,
   statsChartOutline,
-x} from "ionicons/icons";
+} from "ionicons/icons";
 
 const BarraLateral = () => {
   const [estaAberto, setEstaAberto] = useState(false);
