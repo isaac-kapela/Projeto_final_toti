@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 dotenv.config();
 
@@ -42,7 +44,7 @@ app.get("/users/:id", checarToken, async (req, res) => {
 
   const user = await User.findById(id, "-senha");
 
-  if (user == null || user === "") {
+  if (!user) {
     return res.status(404).json({ message: "Usuário não encontrado" });
   }
 

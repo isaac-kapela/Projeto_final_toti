@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./dashboard.css";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideBar from "../../../components/sideBar/sideBar";
 
-const DashboardProdutos = () => {
+const Dashboard = () => {
   const [produtos, setProdutos] = useState([]);
   const [novoProduto, setNovoProduto] = useState({
     nome: "",
@@ -25,13 +26,17 @@ const DashboardProdutos = () => {
 
   const buscarProdutos = async () => {
     try {
-      const resposta = await fetch("http://localhost:8080/menu", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      const dados = await resposta.json();
-      setProdutos(dados);
+      const token = localStorage.getItem('token');
+      if (token) {
+        const resposta = await axios.get("http://localhost:8080/menu", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Enviando o token no formato correto
+          },
+        });
+        setProdutos(resposta.data);
+      } else {
+        console.error("Token não encontrado no localStorage");
+      }
     } catch (erro) {
       console.error("Erro ao buscar produtos:", erro);
     }
@@ -42,18 +47,16 @@ const DashboardProdutos = () => {
   }, []);
 
   const adicionarProduto = async () => {
-    if (novoProduto.nome && novoProduto.preco) {
+    const token = localStorage.getItem('token');
+    if (novoProduto.nome && novoProduto.preco && token) {
       try {
-        const resposta = await fetch("http://localhost:8080/criar", {
-          method: "POST",
+        const resposta = await axios.post("http://localhost:8080/criar", novoProduto, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${token}`,  // Adicionando o token no cabeçalho
           },
-          body: JSON.stringify(novoProduto),
         });
-        const dados = await resposta.json();
-        setProdutos([...produtos, dados]);
+        setProdutos([...produtos, resposta.data]);
         setNovoProduto({
           nome: "",
           descricao: "",
@@ -65,37 +68,39 @@ const DashboardProdutos = () => {
       } catch (erro) {
         console.error("Erro ao adicionar produto:", erro);
       }
+    } else {
+      console.error("Dados incompletos ou token não encontrado");
     }
   };
 
   const removerProduto = async (id) => {
-    try {
-      await fetch(`http://localhost:8080/excluir/${id}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
-      setProdutos(produtos.filter((produto) => produto.id !== id));
-    } catch (erro) {
-      console.error("Erro ao remover produto:", erro);
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        await axios.delete(`http://localhost:8080/excluir/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setProdutos(produtos.filter((produto) => produto.id !== id));
+      } catch (erro) {
+        console.error("Erro ao remover produto:", erro);
+      }
     }
   };
 
   const editarProduto = async (id) => {
-    if (novoProduto.nome && novoProduto.preco) {
+    const token = localStorage.getItem('token');
+    if (novoProduto.nome && novoProduto.preco && token) {
       try {
-        const resposta = await fetch(`http://localhost:8080/editar/${id}`, {
-          method: "PUT",
+        const resposta = await axios.put(`http://localhost:8080/editar/${id}`, novoProduto, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${token}`,  // Passando o token ao editar produto
           },
-          body: JSON.stringify(novoProduto),
         });
-        const dados = await resposta.json();
         const produtosAtualizados = produtos.map((produto) =>
-          produto.id === id ? dados : produto
+          produto.id === id ? resposta.data : produto
         );
         setProdutos(produtosAtualizados);
         setNovoProduto({
@@ -235,4 +240,4 @@ const DashboardProdutos = () => {
   );
 };
 
-export default DashboardProdutos;
+export default Dashboard;

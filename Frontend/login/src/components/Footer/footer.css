@@ -50,8 +50,21 @@ footer.dark .lista li {
 .conteudo-footer {
   width: 33.3%;
   padding: 10px;
+  text-align: center;
 }
 
+.conteudo-footer h3 {
+  color: #f18930;
+  font-size: 32px;
+  margin-bottom: 15px;  
+}
+
+.conteudo-footer p {
+  width: 190px;
+  margin: auto;
+  padding: 7px;
+  color: white;
+}
 h3 {
   font-size: 28px;
   margin-bottom: 15px;

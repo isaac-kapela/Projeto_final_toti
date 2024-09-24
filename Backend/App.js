@@ -1,7 +1,6 @@
 import express from 'express';
 import MenuController from './controllers/MenuController.js';
 import cors from 'cors';
-
 import checarToken from './controllers/checkartoken.js';
 
 const app = express();
@@ -16,7 +15,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 
 app.get('/', checarToken, MenuController.listar);
 app.post('/criar', checarToken, MenuController.criar);
