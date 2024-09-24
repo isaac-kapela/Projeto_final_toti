@@ -7,8 +7,7 @@ import {
   peopleOutline,
   cartOutline,
   statsChartOutline,
-  settingsOutline,
-} from "ionicons/icons";
+x} from "ionicons/icons";
 
 const BarraLateral = () => {
   const [estaAberto, setEstaAberto] = useState(false);
@@ -19,7 +18,6 @@ const BarraLateral = () => {
     { icone: peopleOutline, texto: "Perfis", cor: "#ffa117", caminho: "/perfis" },
     { icone: cartOutline, texto: "Produtos", cor: "#c60000", caminho: "/Produtos" },
     { icone: statsChartOutline, texto: "Quantidade", cor: "#ffa117", caminho: "/quantidade" },
-    { icone: settingsOutline, texto: "Configurações", cor: "#c60000", caminho: "/configuracoes" },
   ];
 
   const alternarMenu = () => setEstaAberto(!estaAberto);
