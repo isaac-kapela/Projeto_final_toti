@@ -9,7 +9,7 @@ const Footer = ({ tema }) => {
           <h3>Fale Conosco</h3>
           <p>Email: info@gmail.com</p>
           <p>Telefone: +55 1134465-5630</p>
-          <p>Endereço: Seu Endereço 123, Rua</p>
+          <p>Endereço: toti toti 123, Rua</p>
         </div>
         <div className="conteudo-footer">
           <h3>Links </h3>
