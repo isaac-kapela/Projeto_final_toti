@@ -9,7 +9,7 @@
 | [Desenvolvedores](#Desenvolvedores) |
 | [Como executar o projeto inicial](#Descrição-do-Projeto) |
 | [Git](#Git-tutorial) |
-| [Informações do php](#Comandos-necessários-para-o-projeto-em-PHP) |
+| [Informações do react](https://react.dev/) |
 
 #### Desenvolvedores:
 
@@ -37,7 +37,7 @@
 ## Descrição do Projeto:
 
 * Projeto / Projeto final do curso da toti  [Toti diversidade](https://totidiversidade.com.br/), turma 47 2024.2;
-* Possuirá Front-End em HTML, CSS, React, JavaScript, Bootstrap e Back-End em JavaScript com Node.js no padrão MVC, com Banco de Dados SQLite;
+* Possuirá Front-End em HTML, CSS, React, JavaScript, Bootstrap e Back-End em JavaScript com Node.js no padrão MVC, com Banco de Dados SQLite e MongoDB;
 
 
 
