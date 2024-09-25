@@ -9,7 +9,7 @@
 | [Desenvolvedores](#Desenvolvedores) |
 | [Como executar o projeto inicial](#Descrição-do-Projeto) |
 | [Git](#Git-tutorial) |
-| [Informações do react](#Comandos-necessários-para-o-projeto-em-PHP) |
+| [Informações do react](https://react.dev/) |
 
 #### Desenvolvedores:
 
