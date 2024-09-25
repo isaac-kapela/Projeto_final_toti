@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container2 {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.container2.dark {
+  background: #5a5858;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .container2 {
+      padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container2 {
+      padding: 0.25rem;
+  }
+}

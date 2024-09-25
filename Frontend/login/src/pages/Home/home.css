@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.titulo {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 20px;
+}
+
+.item-menu {
+  border: 1px solid #e1e1e1;
+  border-radius: 15px;
+  padding: 15px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f4ebe1;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.item-menu:hover {
+  background: #f0e9e9;
+  transform: scale(1.05);
+}
+
+.imagem-item {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.titulo-item {
+  color: #555;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.descricao-item {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.detalhes-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.preco-item {
+  font-weight: bold;
+  color: #333;
+  font-size: 16px;
+}
+
+.disponibilidade-item {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.campo-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.rotulo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.input-checkbox {
+  margin-left: 10px;
+}
+
+.botao-submit {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.botao-submit:hover {
+  background-color: #0056b3;
+}
+
+.containerItens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+  padding: 80px;
+}
+
+.imagem-item img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 1200px) {
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lista {
+    grid-template-columns: 1fr;
+  }
+
+  .item-menu {
+    width: 100%;
+  }
+
+  .imagem-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 20px;
+  }
+
+  .titulo-item {
+    font-size: 16px;
+  }
+
+  .preco-item {
+    font-size: 14px;
+  }
+
+  .disponibilidade-item {
+    font-size: 12px;
+  }
+
+  .botao-submit {
+    padding: 8px 16px;
+  }
+}
