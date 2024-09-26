@@ -8,7 +8,8 @@ import marguerita from "../../assets/marguerita.jpeg";
 import pepperoni from "../../assets/PizzaPepe.jpeg";
 import quatroQueijos from "../../assets/quatroQueijo.jpeg";
 import portuguesa from "../../assets/portuguesa.jpeg";
-import Footer from "../../components/Footer/footer"
+// import Footer from "../../components/Footer/footer";
+
 const LandingPage = () => {
     const navegar = useNavigate();
     const [menuItems] = useState([
@@ -112,9 +113,8 @@ const LandingPage = () => {
                     </div>
                 </section>
             </main>
-            <Footer className= "footerLanding" />
+            {/* <Footer className="footerLanding" /> */}
         </>
-
     );
 };
 
