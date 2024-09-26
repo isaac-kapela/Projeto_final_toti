@@ -8,7 +8,7 @@ import marguerita from "../../assets/marguerita.jpeg";
 import pepperoni from "../../assets/PizzaPepe.jpeg";
 import quatroQueijos from "../../assets/quatroQueijo.jpeg";
 import portuguesa from "../../assets/portuguesa.jpeg";
-
+import Footer from "../../components/Footer/footer"
 const LandingPage = () => {
     const navegar = useNavigate();
     const [menuItems] = useState([
@@ -43,77 +43,78 @@ const LandingPage = () => {
     ]);
 
     return (
-        <main id="content">
-            <section id="home">
-                <div className="shape"></div>
-                <div id="cta">
-                    <h1 className="title">
-                        O sabor da sua <span>ESCOLHA</span>
-                    </h1>
+        <>
+            <main id="content">
+                <section id="home">
+                    <div className="shape"></div>
+                    <div id="cta">
+                        <h1 className="title">
+                            O sabor da sua <span>ESCOLHA</span>
+                        </h1>
 
-                    <p className="description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet
-                    </p>
+                        <p className="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet
+                        </p>
 
-                    <div id="cta_buttons">
-                        <a className="btn-default" onClick={() => navegar('/login')}>
-                            Ver cardápio
-                        </a>
+                        <div id="cta_buttons">
+                            <a className="btn-default" onClick={() => navegar('/login')}>
+                                Ver cardápio
+                            </a>
 
-                        <a href="tel:+55555555555" id="phone_button">
-                            <button className="btn-default">
-                                <FaPhone />
-                            </button>
-                            (xx) xxxxx-xxxx
-                        </a>
-                    </div>
-
-                    <div className="social-media-buttons">
-                        <span>
-                            <img src={IMGICON} alt="Social Icon" />
-                        </span>
-                        <span>
-                            <img src={IMGICON} alt="Social Icon" />
-                        </span>
-                        <span>
-                            <img src={IMGICON} alt="Social Icon" />
-                        </span>
-                    </div>
-                </div>
-
-                <div id="banner">
-                    <img src={IMGLandingPage} alt="Landing Page" />
-                </div>
-            </section>
-
-            <section id="menu">
-                {/* <h2 className="section-title">Cardápio</h2> */}
-                {/* <h3 className="section-subtitle">Nossas pizzas especiais</h3> */}
-
-                <div id="pizzas">
-                    {menuItems.map(item => (
-                        <div key={item.id} className="pizza">
-                            <div className="pizza-heart">
-                                <i className="fa-solid fa-heart"></i>
-                            </div>
-                            <img src={item.imagem} className="pizza-image" alt={item.nome} />
-                            <h3 className="pizza-title">{item.nome}</h3>
-                            <span className="pizza-description">{item.descricao}</span>
-                            <div className="pizza-rate">
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                                <i className="fa-solid fa-star"></i>
-                            </div>
-                            <div className="pizza-price">
-                                <h4>R${item.preco}</h4>
-                            </div>
+                            <a href="tel:+55555555555" id="phone_button">
+                                <button className="btn-default">
+                                    <FaPhone />
+                                </button>
+                                (xx) xxxxx-xxxx
+                            </a>
                         </div>
-                    ))}
-                </div>
-            </section>
-        </main>
+
+                        <div className="social-media-buttons">
+                            <span>
+                                <img src={IMGICON} alt="Social Icon" />
+                            </span>
+                            <span>
+                                <img src={IMGICON} alt="Social Icon" />
+                            </span>
+                            <span>
+                                <img src={IMGICON} alt="Social Icon" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div id="banner">
+                        <img src={IMGLandingPage} alt="Landing Page" />
+                    </div>
+                </section>
+
+                <section id="menu">
+                    <div id="pizzas">
+                        {menuItems.map(item => (
+                            <div key={item.id} className="pizza">
+                                <div className="pizza-heart">
+                                    <i className="fa-solid fa-heart"></i>
+                                </div>
+                                <img src={item.imagem} className="pizza-image" alt={item.nome} />
+                                <h3 className="pizza-title">{item.nome}</h3>
+                                <span className="pizza-description">{item.descricao}</span>
+                                <div className="pizza-rate">
+                                    <i className="fa-solid fa-star"></i>
+                                    <i className="fa-solid fa-star"></i>
+                                    <i className="fa-solid fa-star"></i>
+                                    <i className="fa-solid fa-star"></i>
+                                    <i className="fa-solid fa-star"></i>
+                                </div>
+                                <div className="pizza-price">
+                                    <h4>R${item.preco}</h4>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </main>
+            <Footer className= "footerLanding" />
+        </>
+
     );
 };
 

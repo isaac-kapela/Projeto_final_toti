@@ -1,3 +1,8 @@
+
+body{
+  font-family: 'quicksand', sans-serif;
+
+}
 .navegacao {
     position: fixed;
     inset: 20px 0 20px 20px;

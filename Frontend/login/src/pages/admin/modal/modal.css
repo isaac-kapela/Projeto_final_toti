@@ -1,3 +1,8 @@
+body{
+  font-family: 'quicksand', sans-serif;
+
+}
+
 .modal {
     display: flex;
     justify-content: center;
