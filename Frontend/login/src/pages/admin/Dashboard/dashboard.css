@@ -1,6 +1,5 @@
-body{
+body {
   font-family: 'quicksand', sans-serif;
-
 }
 
 .container-dashboard {
@@ -10,7 +9,7 @@ body{
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-  position: relative; 
+  position: relative;
 }
 
 h1, h2 {
@@ -76,9 +75,15 @@ input[type="checkbox"] {
   background-color: #c60000;
   color: white;
   margin-bottom: 20px;
-  position: absolute; 
-  top: 20px; 
-  right: 20px; 
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.botao-logout:hover {
+  background-color: #a50000;
+  transform: scale(1.05);
 }
 
 .Btns-container {
@@ -86,7 +91,7 @@ input[type="checkbox"] {
   justify-content: center;
 }
 
-.botao-adicionar:hover, .botao-editar:hover, .botao-remover:hover, .botao-logout:hover {
+.botao-adicionar:hover, .botao-editar:hover, .botao-remover:hover {
   opacity: 0.9;
 }
 
@@ -145,6 +150,12 @@ input[type="checkbox"] {
     width: calc(50% - 20px);
     font-weight: bold;
   }
+
+  .botao-logout {
+    position: static;
+    width: 100%;
+    margin: 10px 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -156,6 +167,7 @@ input[type="checkbox"] {
     width: 100%;
     margin-bottom: 10px;
   }
+  
 
   .Btns-container {
     flex-direction: column;

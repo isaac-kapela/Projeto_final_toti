@@ -250,21 +250,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-// const Dashboard = ({ isAdmin }) => {
-//   return (
-//     <div>
-//       <h1>Bem-vindo ao Dashboard</h1>
-//       {isAdmin ? (
-//         <div>
-//           <h2>Área de Administração</h2>
-//           <p>Aqui estão as ferramentas administrativas.</p>
-//           {/* Renderiza componentes exclusivos para administradores */}
-//         </div>
-//       ) : (
-//         ""
-//       )}
-//     </div>
-//   );
-// };
-// ------------------------------------------

@@ -19,6 +19,7 @@ export default function Login() {
       setMessage(response.data.message);
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token); 
+        localStorage.setItem('email', email); 
         navegar('/home');
       }
       
