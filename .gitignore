@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+
+node_modules/
+
+build/
+dist/
+
+.env
+
+.vscode/
+.idea/
+
+.cache/
+.parcel-cache/
+.next/
+
+
+
+package-lock.json
