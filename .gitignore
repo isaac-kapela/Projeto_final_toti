@@ -12,10 +12,5 @@ dist/
 .vscode/
 .idea/
 
-.cache/
-.parcel-cache/
-.next/
-
-
 
 package-lock.json
