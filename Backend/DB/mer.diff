@@ -1,0 +1,11 @@
++-----------------+
+|      Menu       |
++-----------------+
+| id (PK)        |
+| nome           |
+| descricao      |
+| preco          |
+| categoria      |
+| imagem         |
+| disponibilidade|
++-----------------+

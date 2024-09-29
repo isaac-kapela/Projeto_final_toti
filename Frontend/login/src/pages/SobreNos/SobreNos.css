@@ -1,0 +1,165 @@
+.sobre-nos-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  width: 98vw;
+  height: auto;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pizza-imagem {
+  width: 120%;
+  max-width: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.texto-container {
+  flex: 1;
+  padding-left: 0;
+  text-align: center;
+}
+
+.texto-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.texto-container p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.texto-container ul {
+  padding-left: 0;
+  margin-bottom: 20px;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.texto-container ul li {
+  margin-right: 55px;
+  font-size: 1rem;
+}
+
+.botao-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.botao-cardapio {
+  background-color: white;
+  color: #d35400;
+  border: 2px solid #d35400;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.botao-cardapio:hover {
+  background-color: #d35400;
+  color: white;
+  transition: 0.3s;
+}
+
+.creditos-imagem {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.creditos-imagem a {
+  color: #d35400;
+  text-decoration: none;
+}
+
+.creditos-imagem a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 576px) {
+  .texto-container h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .sobre-nos-container {
+    flex-direction: row;
+    height: 100vh;
+    padding: 50px;
+  }
+
+  .texto-container {
+    padding-left: 40px;
+    text-align: left;
+  }
+
+  .texto-container h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .texto-container h2 {
+    font-size: 2.25rem;
+  }
+
+  .texto-container p {
+    font-size: 1.1rem;
+  }
+
+  .texto-container ul li {
+    font-size: 1.1rem;
+  }
+
+  .botao-cardapio {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .texto-container h2 {
+    font-size: 2.5rem;
+  }
+
+  .texto-container p {
+    font-size: 1.2rem;
+  }
+
+  .texto-container ul li {
+    font-size: 1.2rem;
+  }
+
+  .botao-cardapio {
+    font-size: 1.2rem;
+  }
+}

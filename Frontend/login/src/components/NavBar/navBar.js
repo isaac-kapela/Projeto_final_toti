@@ -40,7 +40,7 @@ export default function NavBar({ tema, setTema }) {
             <li className='li_lista'><Link to="/home">Home</Link></li>
             <li className='li_lista'><Link to="/carinho">Carinho</Link></li>
             {isAdmin && <li className='li_lista'><Link to="/dashboard">Dashboard</Link></li>}
-            <li className='li_lista'><Link to="">Sobre-nos</Link></li>
+            <li className='li_lista'><Link to="/SobreNos">Sobre-nos</Link></li>
             <li className='li_lista'>
               <img className='mudaTema someResponsiva' onClick={mudarTema} width="30" height="30" src={tema === 'light' ? lua : sol} alt="" />
             </li>

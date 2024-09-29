@@ -10,6 +10,7 @@ import Dashboard from "../pages/admin/Dashboard/dashboard";
 import Nao44 from "../pages/404-ERRO/NaoEcontrado";
 import Perfis from "../pages/admin/Perfis/perfis";
 import Produtos from "../pages/admin/produtos/produtos";
+import SobreNos from "../pages/SobreNos/SobreNos";
 
 function AppRoutes() {
   return (
@@ -41,6 +42,14 @@ function AppRoutes() {
         element={
           <RotasPrivadas>
             <Dashboard />
+          </RotasPrivadas>
+        }
+      />
+      <Route
+        path="/SobreNos"
+        element={
+          <RotasPrivadas>
+            <SobreNos />
           </RotasPrivadas>
         }
       />

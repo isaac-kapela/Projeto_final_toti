@@ -54,7 +54,11 @@ const LandingPage = () => {
                         </h1>
 
                         <p className="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet
+
+                            Bem-vindo à nossa pizzaria! Aqui, nós acreditamos que uma boa pizza é mais do que apenas uma refeição – é uma experiência.
+                            Utilizamos ingredientes frescos e de alta qualidade para criar pizzas deliciosas que agradam a todos os paladares.
+                            Seja você um amante de sabores clássicos ou alguém que gosta de experimentar combinações inovadoras, temos algo especial para você.
+                            Venha nos visitar e descubra o sabor autêntico de nossas pizzas artesanais. Estamos ansiosos para recebê-lo!
                         </p>
 
                         <div id="cta_buttons">
