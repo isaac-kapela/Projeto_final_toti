@@ -54,7 +54,6 @@ const LandingPage = () => {
                         </h1>
 
                         <p className="description">
-
                             Bem-vindo à nossa pizzaria! Aqui, nós acreditamos que uma boa pizza é mais do que apenas uma refeição – é uma experiência.
                             Utilizamos ingredientes frescos e de alta qualidade para criar pizzas deliciosas que agradam a todos os paladares.
                             Seja você um amante de sabores clássicos ou alguém que gosta de experimentar combinações inovadoras, temos algo especial para você.
@@ -93,7 +92,7 @@ const LandingPage = () => {
                 </section>
 
                 <section id="menu">
-                    <div id="pizzas">
+                    <div id="pizzas" className="menuItems">
                         {menuItems.map(item => (
                             <div key={item.id} className="pizza">
                                 <div className="pizza-heart">

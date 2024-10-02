@@ -219,7 +219,7 @@ section {
   font-weight: bold;
 }
 
-.footerLanding{
+.footerLanding {
   background-color: red;
   color: var(--color-neutral-0);
   display: flex;
@@ -245,6 +245,10 @@ section {
     width: 100%;
     text-align: center;
     align-items: center;
+  }
+
+  .menuItems {
+    display: none;
   }
 }
 

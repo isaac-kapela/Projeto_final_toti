@@ -6,6 +6,8 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SideBar from "../../../components/sideBar/sideBar";
 import Modal from "../modal/modal"; 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
   const [produtos, setProdutos] = useState([]);
@@ -68,11 +70,14 @@ const Dashboard = () => {
           imagem: "",
           disponibilidade: true,
         });
+        toast.success("Produto adicionado com sucesso!");
       } catch (erro) {
         console.error("Erro ao adicionar produto:", erro);
+        toast.error("Erro ao adicionar produto.");
       }
     } else {
       console.error("Dados incompletos ou token não encontrado");
+      toast.error("Dados incompletos ou token não encontrado.");
     }
   };
 
@@ -86,8 +91,10 @@ const Dashboard = () => {
           },
         });
         setProdutos(produtos.filter((produto) => produto.id !== id));
+        toast.success("Produto removido com sucesso!");
       } catch (erro) {
         console.error("Erro ao remover produto:", erro);
+        toast.error("Erro ao remover produto.");
       }
     }
   };
@@ -116,8 +123,10 @@ const Dashboard = () => {
           produto.id === produtoEditado.id ? resposta.data : produto
         );
         setProdutos(produtosAtualizados);
+        toast.success("Produto editado com sucesso!");
       } catch (erro) {
         console.error("Erro ao editar produto:", erro);
+        toast.error("Erro ao editar produto.");
       }
     }
   };
@@ -245,6 +254,7 @@ const Dashboard = () => {
       {isModalAberto && (
         <Modal produto={produtoParaEditar} onClose={handleModalClose} onSave={salvarProduto} />
       )}
+      <ToastContainer />
     </div>
   );
 };
