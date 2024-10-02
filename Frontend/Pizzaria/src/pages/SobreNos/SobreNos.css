@@ -1,16 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #d35400;
+  --secondary-color: #fff;
+  --text-color: #333;
+  --text-light-color: #555;
+  --border-color: #ddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition-duration: 0.3s;
+}
+
+body {
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
 .sobre-nos-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--secondary-color);
   width: 98vw;
   height: auto;
-  margin: 0;
-  border: 1px solid #ddd;
+  margin: 20px auto;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
+  transition: transform var(--transition-duration);
+}
+
+.sobre-nos-container:hover {
+  transform: translateY(-10px);
 }
 
 .imagem-container {
@@ -21,11 +44,11 @@
 }
 
 .pizza-imagem {
-  width: 120%;
+  width: 100%;
   max-width: 500px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-color);
   animation: rotate 10s linear infinite;
 }
 
@@ -45,15 +68,15 @@
 }
 
 .texto-container h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .texto-container p {
   font-size: 1rem;
   margin-bottom: 15px;
-  color: #555;
+  color: var(--text-light-color);
 }
 
 .texto-container ul {
@@ -67,13 +90,15 @@
 .texto-container ul li {
   margin-right: 20px; 
   font-size: 1rem;
-
+  position: relative;
 }
 
 .texto-container ul li::before {
+  content: '•';
   position: absolute;
   left: -25px; 
   font-size: 1rem;
+  color: var(--primary-color);
 }
 
 .botao-container {
@@ -83,19 +108,19 @@
 }
 
 .botao-cardapio {
-  background-color: white;
-  color: #d35400;
-  border: 2px solid #d35400;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
   padding: 10px 20px;
   border-radius: 30px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color var(--transition-duration), color var(--transition-duration);
 }
 
 .botao-cardapio:hover {
-  background-color: #d35400;
-  color: white;
-  transition: 0.3s;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .creditos-imagem {
@@ -104,7 +129,7 @@
 }
 
 .creditos-imagem a {
-  color: #d35400;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -114,7 +139,7 @@
 
 @media (min-width: 576px) {
   .texto-container h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 }
 
@@ -131,13 +156,13 @@
   }
 
   .texto-container h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
   }
 }
 
 @media (min-width: 992px) {
   .texto-container h2 {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
   }
 
   .texto-container p {
@@ -155,7 +180,7 @@
 
 @media (min-width: 1200px) {
   .texto-container h2 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
   }
 
   .texto-container p {

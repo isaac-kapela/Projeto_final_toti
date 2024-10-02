@@ -1,5 +1,7 @@
 import React from "react";
 import "./footer.css";
+import { Link } from 'react-router-dom';
+
 
 const Footer = ({ tema }) => {
   return (
@@ -14,10 +16,9 @@ const Footer = ({ tema }) => {
         <div className="conteudo-footer">
           <h3>Links </h3>
           <ul className="lista">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Menu</a></li>
-            <li><a href="/">Sobre</a></li>
-            <li><a href="/">Contato</a></li>
+          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/carinho">Carinho</Link></li>
+          <li><Link to="/SobreNos">Sobre-nos</Link></li>
           </ul>
         </div>
         <div className="conteudo-footer">
